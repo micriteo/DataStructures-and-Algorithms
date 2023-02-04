@@ -33,11 +33,11 @@ namespace BinarySearch
             int n = arr2.Length;
 
 
-            QuickSort(arr, 0, n - 1);
+            QuickSort(arr2, 0, n - 1);
 
             Console.WriteLine("Sorted array is: ");
             for (int i = 0; i < n; ++i)
-                Console.Write(arr[i] + " ");
+                Console.Write(arr2[i] + " ");
 
         }
 
@@ -84,41 +84,49 @@ namespace BinarySearch
         }
 
 
-        
-        static int Partition(int[] arr, int low, int high)
-        {
-            
-            //Taking
-            int pivot = arr[high];
 
+        static int Partition(int[] arr2, int low, int high)
+        {
+            // Choose the pivot value
+            int pivot = arr2[high];
+
+            // Initialize the index of the pivot element
             int i = (low - 1);
+
+            // Loop through all elements in the sub-array
             for (int j = low; j < high; j++)
             {
-                if (arr[j] <= pivot)
+                // If the current element is smaller than or equal to the pivot,
+                // swap it with the element at index i + 1.
+                if (arr2[j] <= pivot)
                 {
                     i++;
 
-                    int temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
+                    int temp = arr2[i];
+                    arr2[i] = arr2[j];
+                    arr2[j] = temp;
                 }
             }
 
-            int temp1 = arr[i + 1];
-            arr[i + 1] = arr[high];
-            arr[high] = temp1;
+            // Swap the pivot element with the element at index i + 1
+            int temp1 = arr2[i + 1];
+            arr2[i + 1] = arr2[high];
+            arr2[high] = temp1;
 
+            // Return the index of the pivot element
             return i + 1;
         }
 
-        static void QuickSort(int[] arr, int low, int high)
+        static void QuickSort(int[] arr2, int low, int high)
         {
+            // If the low index is less than the high index,
+            // partition the sub-array and sort both halves recursively.
             if (low < high)
             {
-                int pi = Partition(arr, low, high);
+                int pi = Partition(arr2, low, high);
 
-                QuickSort(arr, low, pi - 1);
-                QuickSort(arr, pi + 1, high);
+                QuickSort(arr2, low, pi - 1);
+                QuickSort(arr2, pi + 1, high);
             }
         }
     }
