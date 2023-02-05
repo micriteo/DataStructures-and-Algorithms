@@ -7,6 +7,14 @@ namespace BinarySearch
     {
         static void Main(string[] args)
         {
+            // Adding two numbers ??
+            // Complexity O(1)
+            int a = 5;
+            int b = 6;
+            int c = a + b;
+            Console.WriteLine(c);
+            Console.WriteLine("INCREDIBLE!");
+
             //Binary Search Complexity O(log n)
             //The list that will be searched
             int[] arr = new int[] { 16, 27, 43, 45, 56, 67, 78, 89, 90, 100 };
@@ -15,7 +23,7 @@ namespace BinarySearch
             int result = BinarySearch(arr, target);
             Console.WriteLine("Index of " + target + " is " + result);
 
-
+            
             //Looping through an ArrayList 
             //Complexity O(n)
             Console.WriteLine("Enter a number");
@@ -24,12 +32,12 @@ namespace BinarySearch
             Console.WriteLine("The list of numbers created is  " + numbersShown);
 
 
-            //Quick Sort
-            //Complexity O(n log n)
+            // Quick Sort
+            // Complexity O(n log n)
 
             //Providing an unsorted list 
             int[] arr2 = { 23, 7, 8, 30, 1, 6 };
-            //Getting the length of the array;
+            // Getting the length of the array;
             int n = arr2.Length;
 
 
@@ -39,6 +47,12 @@ namespace BinarySearch
             for (int i = 0; i < n; ++i)
                 Console.Write(arr2[i] + " ");
 
+            Console.WriteLine();
+            // Password list generator
+            // Complexity O(n^2)
+            Console.WriteLine("Enter a number");
+            int number_v_two = Int32.Parse(Console.ReadLine());
+            PasswordList.Generate(number_v_two, new List<string> { "a", "b", "c" });
         }
 
         public static int BinarySearch(int[] arr, int target)
@@ -83,9 +97,7 @@ namespace BinarySearch
             return overview;
         }
 
-
-
-        static int Partition(int[] arr2, int low, int high)
+        public static int Partition(int[] arr2, int low, int high)
         {
             // Choose the pivot value
             int pivot = arr2[high];
@@ -117,7 +129,7 @@ namespace BinarySearch
             return i + 1;
         }
 
-        static void QuickSort(int[] arr2, int low, int high)
+        public static void QuickSort(int[] arr2, int low, int high)
         {
             // If the low index is less than the high index,
             // partition the sub-array and sort both halves recursively.
