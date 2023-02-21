@@ -67,7 +67,10 @@ namespace BinaryTree
             }
 
         }
-        // Perform an inorder traversal of the binary tree
+        // perform an inorder traversal of the binary tree
+        // goes left to right to find the left leaf node then its parent then see if the right node has a left node
+        // then recursivly go up the tree 
+        // numbers in ascending order
         public void InOrderTraversal()
         {
             InOrderTraversal(root);
