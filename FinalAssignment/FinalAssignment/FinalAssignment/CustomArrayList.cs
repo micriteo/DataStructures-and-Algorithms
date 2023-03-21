@@ -1,6 +1,8 @@
-﻿namespace FinalAssignment;
+﻿using System;
 
-public class CustomArrayList<T>:ISortable, ISearchable,IInsertable
+namespace FinalAssignment;
+
+public class CustomArrayList<T> : ISortable, ISearchable, IInsertable where T : new()
 {
     private T[] _array;
     private int _count;
@@ -21,19 +23,70 @@ public class CustomArrayList<T>:ISortable, ISearchable,IInsertable
     }
 
 
-    public InputType[] QuickSort()
+    public InputType[] QuickSort(T[] _array, int left, int right)
     {
+        if (left < right)
+        {
+            int pivotIndex = Partition(_array, left, right);
+            QuickSort(_array, left, pivotIndex - 1);
+            QuickSort(_array, pivotIndex + 1, right);
+        }
+
+
         throw new NotImplementedException();
     }
+   
+    /*private int Partition(T[] _array, int left, int right)
+    {
+        T pivot = _array[right];
+        int i = left - 1;
+        for (int j = left; j < right; j++)
+        {
+            if (Comparer<T>.Default.Compare(_array[j], pivot) < 0)
+            {
+                i++;
+                Swap(_array, i, j);
+            }
+        }
+        Swap(_array, i + 1, right);
+        return i + 1;
+    }*/
 
     public InputType[] InsertSort()
     {
         throw new NotImplementedException();
     }
 
+    public void AddElement(T item)
+    {
+
+        if (item == null) throw new ArgumentNullException();
+
+        if(this._count == this._array.Length) 
+        {
+            T[] newArray = new T[_array.Length * 2];
+            Array.Copy(_array, 0, newArray, 0, _array.Length);
+            _array = newArray;
+        }
+
+        _array[_count] = item;
+        _count++;
+
+        // TODO: When array reaches capacity limit, increase the size of the array by the incrementer and keep the old values
+        throw new NotImplementedException();
+    }
+
     public void Insert(InputType obj)
     {
-        // TODO: When array reaches capacity limit, increase the size of the array by the incrementer and keep the old values
+        // Create a new T object from the InputType object
+        T item = new T();
+
+        // Call the AddElement method to add the item to the array
+        AddElement(item);
+    }
+
+    public InputType[] QuickSort<T>(T[] array) where T : IComparable<T>
+    {
         throw new NotImplementedException();
     }
 }
