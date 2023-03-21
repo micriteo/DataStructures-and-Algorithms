@@ -37,7 +37,7 @@
             labelOutput = new Label();
             textBoxInputText = new TextBox();
             textBoxOutput = new TextBox();
-            generateBtn = new Button();
+            buttonGenerate = new Button();
             buttonInsert = new Button();
             labelExecutionTime = new Label();
             labelSelectSortAlgr = new Label();
@@ -154,15 +154,15 @@
             textBoxOutput.Size = new Size(711, 298);
             textBoxOutput.TabIndex = 8;
             // 
-            // generateBtn
+            // buttonGenerate
             // 
-            generateBtn.Location = new Point(972, 488);
-            generateBtn.Margin = new Padding(6, 7, 6, 7);
-            generateBtn.Name = "generateBtn";
-            generateBtn.Size = new Size(244, 84);
-            generateBtn.TabIndex = 10;
-            generateBtn.Text = "Generate ";
-            generateBtn.UseVisualStyleBackColor = true;
+            buttonGenerate.Location = new Point(972, 488);
+            buttonGenerate.Margin = new Padding(6, 7, 6, 7);
+            buttonGenerate.Name = "buttonGenerate";
+            buttonGenerate.Size = new Size(244, 84);
+            buttonGenerate.TabIndex = 10;
+            buttonGenerate.Text = "Generate ";
+            buttonGenerate.UseVisualStyleBackColor = true;
             // 
             // buttonInsert
             // 
@@ -284,7 +284,7 @@
             Controls.Add(labelSelectSortAlgr);
             Controls.Add(labelExecutionTime);
             Controls.Add(buttonInsert);
-            Controls.Add(generateBtn);
+            Controls.Add(buttonGenerate);
             Controls.Add(textBoxOutput);
             Controls.Add(textBoxInputText);
             Controls.Add(labelOutput);
@@ -319,7 +319,7 @@
         private Label labelOutput;
         private TextBox textBoxInputText;
         private TextBox textBoxOutput;
-        private Button generateBtn;
+        private Button buttonGenerate;
         private Button buttonInsert;
         private Label labelExecutionTime;
         private Label labelSelectSortAlgr;
