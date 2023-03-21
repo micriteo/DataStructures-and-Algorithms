@@ -1,6 +1,8 @@
-﻿namespace FinalAssignment;
+﻿using System;
 
-public class CustomArrayList<T>:ISortable, ISearchable,IInsertable
+namespace FinalAssignment;
+
+public class CustomArrayList<T> : ISortable, ISearchable, IInsertable where T : new()
 {
     private T[] _array;
     private int _count;
@@ -21,17 +23,41 @@ public class CustomArrayList<T>:ISortable, ISearchable,IInsertable
     }
 
 
-    public InputType[] QuickSort()
+    public InputType[] QuickSort(T[] _array, int left, int right)
     {
+        if (left < right)
+        {
+            int pivotIndex = Partition(_array, left, right);
+            QuickSort(_array, left, pivotIndex - 1);
+            QuickSort(_array, pivotIndex + 1, right);
+        }
+
+
         throw new NotImplementedException();
     }
+   
+    /*private int Partition(T[] _array, int left, int right)
+    {
+        T pivot = _array[right];
+        int i = left - 1;
+        for (int j = left; j < right; j++)
+        {
+            if (Comparer<T>.Default.Compare(_array[j], pivot) < 0)
+            {
+                i++;
+                Swap(_array, i, j);
+            }
+        }
+        Swap(_array, i + 1, right);
+        return i + 1;
+    }*/
 
     public InputType[] InsertSort()
     {
         throw new NotImplementedException();
     }
 
-    public void Insert(T item)
+    public void AddElement(T item)
     {
 
         if (item == null) throw new ArgumentNullException();
@@ -51,6 +77,15 @@ public class CustomArrayList<T>:ISortable, ISearchable,IInsertable
     }
 
     public void Insert(InputType obj)
+    {
+        // Create a new T object from the InputType object
+        T item = new T();
+
+        // Call the AddElement method to add the item to the array
+        AddElement(item);
+    }
+
+    public InputType[] QuickSort<T>(T[] array) where T : IComparable<T>
     {
         throw new NotImplementedException();
     }
