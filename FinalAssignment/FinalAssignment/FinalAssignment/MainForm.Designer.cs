@@ -46,6 +46,9 @@
             infoToolStripMenuItem = new ToolStripMenuItem();
             comboBoxCollectionType = new ComboBox();
             label1 = new Label();
+            buttonBTInOrder = new Button();
+            buttonBTPreOrder = new Button();
+            buttonBTPostOrder = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -169,6 +172,7 @@
             buttonInsert.TabIndex = 11;
             buttonInsert.Text = "Add";
             buttonInsert.UseVisualStyleBackColor = true;
+            buttonInsert.Click += buttonInsert_Click;
             // 
             // labelExecutionTime
             // 
@@ -233,11 +237,47 @@
             label1.TabIndex = 17;
             label1.Text = "Collection";
             // 
+            // buttonBTInOrder
+            // 
+            buttonBTInOrder.Location = new Point(195, 520);
+            buttonBTInOrder.Name = "buttonBTInOrder";
+            buttonBTInOrder.Size = new Size(169, 52);
+            buttonBTInOrder.TabIndex = 18;
+            buttonBTInOrder.Text = "In Order";
+            buttonBTInOrder.UseVisualStyleBackColor = true;
+            buttonBTInOrder.Visible = false;
+            buttonBTInOrder.Click += buttonBTInOrder_Click;
+            // 
+            // buttonBTPreOrder
+            // 
+            buttonBTPreOrder.Location = new Point(474, 520);
+            buttonBTPreOrder.Name = "buttonBTPreOrder";
+            buttonBTPreOrder.Size = new Size(169, 52);
+            buttonBTPreOrder.TabIndex = 19;
+            buttonBTPreOrder.Text = "Pre Order";
+            buttonBTPreOrder.UseVisualStyleBackColor = true;
+            buttonBTPreOrder.Visible = false;
+            buttonBTPreOrder.Click += buttonBTPreOrder_Click;
+            // 
+            // buttonBTPostOrder
+            // 
+            buttonBTPostOrder.Location = new Point(737, 520);
+            buttonBTPostOrder.Name = "buttonBTPostOrder";
+            buttonBTPostOrder.Size = new Size(169, 52);
+            buttonBTPostOrder.TabIndex = 20;
+            buttonBTPostOrder.Text = "Post Order";
+            buttonBTPostOrder.UseVisualStyleBackColor = true;
+            buttonBTPostOrder.Visible = false;
+            buttonBTPostOrder.Click += buttonBTPostOrder_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1300, 681);
+            Controls.Add(buttonBTPostOrder);
+            Controls.Add(buttonBTPreOrder);
+            Controls.Add(buttonBTInOrder);
             Controls.Add(label1);
             Controls.Add(comboBoxCollectionType);
             Controls.Add(labelSelectSearchAlgr);
@@ -257,6 +297,9 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Margin = new Padding(6, 7, 6, 7);
+            MaximizeBox = false;
+            MaximumSize = new Size(1328, 760);
+            MinimumSize = new Size(1328, 760);
             Name = "MainForm";
             Text = "Data Structures Final Assignment";
             menuStrip1.ResumeLayout(false);
@@ -285,5 +328,8 @@
         private ToolStripMenuItem infoToolStripMenuItem;
         private ComboBox comboBoxCollectionType;
         private Label label1;
+        private Button buttonBTInOrder;
+        private Button buttonBTPreOrder;
+        private Button buttonBTPostOrder;
     }
 }

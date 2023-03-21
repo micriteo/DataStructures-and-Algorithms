@@ -61,4 +61,9 @@ public class InputType : IComparable
 
         return 1;
     }
+
+    public override string ToString()
+    {
+        return value.ToString();
+    }
 }

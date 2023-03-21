@@ -2,7 +2,7 @@
 
 namespace FinalAssignment;
 
-public class CustomArrayList<T> : ISortable, ISearchable, IInsertable<T> where T : InputType
+public class CustomArrayList<T> : ISortable, ISearchable, IInsertable<T> where T : IComparable
 {
     private T[] _array;
     private int _count;

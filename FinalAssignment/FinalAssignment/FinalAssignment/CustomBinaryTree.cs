@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace FinalAssignment;
 
-public class CustomBinaryTree<T> where T:IComparable
+public class CustomBinaryTree<T>:IInsertable<T> where T:IComparable
 {
     private BinaryTreeNode<T> _root;
     public BinaryTreeNode<T> Root => this._root;
@@ -41,7 +41,7 @@ public class CustomBinaryTree<T> where T:IComparable
         }
     }
 
-    public void Insert(T insertedValue)
+    public void Add(T insertedValue)
     {
         BinaryTreeNode<T> node = new(insertedValue);
 
