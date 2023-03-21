@@ -1,7 +1,7 @@
 ﻿namespace FinalAssignment;
 
-public interface IInsertable
+public interface IInsertable<T>
 {
-    void Insert(InputType obj);
-    // void Update(InputType obj, int index);
+    void Add(T obj);
+    // void Insert(InputType obj, int index);
 }

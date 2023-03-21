@@ -31,8 +31,8 @@
             labelTitle = new Label();
             quickSortCheck = new RadioButton();
             insertSortCheck = new RadioButton();
-            jumpSearchBtn = new RadioButton();
-            binarryBtn = new RadioButton();
+            jumpSearchCheck = new RadioButton();
+            binarrySearchCheck = new RadioButton();
             labelInput = new Label();
             labelOutput = new Label();
             textBoxInputText = new TextBox();
@@ -44,7 +44,7 @@
             labelSelectSearchAlgr = new Label();
             menuStrip1 = new MenuStrip();
             infoToolStripMenuItem = new ToolStripMenuItem();
-            comboBox1 = new ComboBox();
+            comboBoxCollectionType = new ComboBox();
             label1 = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -63,6 +63,7 @@
             // quickSortCheck
             // 
             quickSortCheck.AutoSize = true;
+            quickSortCheck.Enabled = false;
             quickSortCheck.Location = new Point(927, 211);
             quickSortCheck.Margin = new Padding(6, 7, 6, 7);
             quickSortCheck.Name = "quickSortCheck";
@@ -75,38 +76,41 @@
             // insertSortCheck
             // 
             insertSortCheck.AutoSize = true;
+            insertSortCheck.Enabled = false;
             insertSortCheck.Location = new Point(927, 266);
             insertSortCheck.Margin = new Padding(6, 7, 6, 7);
             insertSortCheck.Name = "insertSortCheck";
-            insertSortCheck.Size = new Size(168, 41);
+            insertSortCheck.Size = new Size(152, 41);
             insertSortCheck.TabIndex = 2;
             insertSortCheck.TabStop = true;
-            insertSortCheck.Text = "Insert Sort";
+            insertSortCheck.Text = "Add Sort";
             insertSortCheck.UseVisualStyleBackColor = true;
             // 
-            // jumpSearchBtn
+            // jumpSearchCheck
             // 
-            jumpSearchBtn.AutoSize = true;
-            jumpSearchBtn.Location = new Point(927, 376);
-            jumpSearchBtn.Margin = new Padding(6, 7, 6, 7);
-            jumpSearchBtn.Name = "jumpSearchBtn";
-            jumpSearchBtn.Size = new Size(198, 41);
-            jumpSearchBtn.TabIndex = 3;
-            jumpSearchBtn.TabStop = true;
-            jumpSearchBtn.Text = "Jump-search";
-            jumpSearchBtn.UseVisualStyleBackColor = true;
+            jumpSearchCheck.AutoSize = true;
+            jumpSearchCheck.Enabled = false;
+            jumpSearchCheck.Location = new Point(927, 376);
+            jumpSearchCheck.Margin = new Padding(6, 7, 6, 7);
+            jumpSearchCheck.Name = "jumpSearchCheck";
+            jumpSearchCheck.Size = new Size(198, 41);
+            jumpSearchCheck.TabIndex = 3;
+            jumpSearchCheck.TabStop = true;
+            jumpSearchCheck.Text = "Jump-search";
+            jumpSearchCheck.UseVisualStyleBackColor = true;
             // 
-            // binarryBtn
+            // binarrySearchCheck
             // 
-            binarryBtn.AutoSize = true;
-            binarryBtn.Location = new Point(927, 431);
-            binarryBtn.Margin = new Padding(6, 7, 6, 7);
-            binarryBtn.Name = "binarryBtn";
-            binarryBtn.Size = new Size(262, 41);
-            binarryBtn.TabIndex = 4;
-            binarryBtn.TabStop = true;
-            binarryBtn.Text = "Binary Search Tree";
-            binarryBtn.UseVisualStyleBackColor = true;
+            binarrySearchCheck.AutoSize = true;
+            binarrySearchCheck.Enabled = false;
+            binarrySearchCheck.Location = new Point(927, 431);
+            binarrySearchCheck.Margin = new Padding(6, 7, 6, 7);
+            binarrySearchCheck.Name = "binarrySearchCheck";
+            binarrySearchCheck.Size = new Size(262, 41);
+            binarrySearchCheck.TabIndex = 4;
+            binarrySearchCheck.TabStop = true;
+            binarrySearchCheck.Text = "Binary Search Tree";
+            binarrySearchCheck.UseVisualStyleBackColor = true;
             // 
             // labelInput
             // 
@@ -149,7 +153,7 @@
             // 
             // generateBtn
             // 
-            generateBtn.Location = new Point(1002, 488);
+            generateBtn.Location = new Point(972, 488);
             generateBtn.Margin = new Padding(6, 7, 6, 7);
             generateBtn.Name = "generateBtn";
             generateBtn.Size = new Size(244, 84);
@@ -163,7 +167,7 @@
             buttonInsert.Name = "buttonInsert";
             buttonInsert.Size = new Size(113, 52);
             buttonInsert.TabIndex = 11;
-            buttonInsert.Text = "Insert";
+            buttonInsert.Text = "Add";
             buttonInsert.UseVisualStyleBackColor = true;
             // 
             // labelExecutionTime
@@ -209,14 +213,15 @@
             infoToolStripMenuItem.Size = new Size(85, 41);
             infoToolStripMenuItem.Text = "Info";
             // 
-            // comboBox1
+            // comboBoxCollectionType
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "LinkedList", "BinaryTree", "ArrayList" });
-            comboBox1.Location = new Point(195, 219);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(711, 45);
-            comboBox1.TabIndex = 16;
+            comboBoxCollectionType.FormattingEnabled = true;
+            comboBoxCollectionType.Items.AddRange(new object[] { "LinkedList", "BinaryTree", "ArrayList" });
+            comboBoxCollectionType.Location = new Point(195, 219);
+            comboBoxCollectionType.Name = "comboBoxCollectionType";
+            comboBoxCollectionType.Size = new Size(711, 45);
+            comboBoxCollectionType.TabIndex = 16;
+            comboBoxCollectionType.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -234,7 +239,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1300, 681);
             Controls.Add(label1);
-            Controls.Add(comboBox1);
+            Controls.Add(comboBoxCollectionType);
             Controls.Add(labelSelectSearchAlgr);
             Controls.Add(labelSelectSortAlgr);
             Controls.Add(labelExecutionTime);
@@ -244,8 +249,8 @@
             Controls.Add(textBoxInputText);
             Controls.Add(labelOutput);
             Controls.Add(labelInput);
-            Controls.Add(binarryBtn);
-            Controls.Add(jumpSearchBtn);
+            Controls.Add(binarrySearchCheck);
+            Controls.Add(jumpSearchCheck);
             Controls.Add(insertSortCheck);
             Controls.Add(quickSortCheck);
             Controls.Add(labelTitle);
@@ -265,8 +270,8 @@
         private Label labelTitle;
         private RadioButton quickSortCheck;
         private RadioButton insertSortCheck;
-        private RadioButton jumpSearchBtn;
-        private RadioButton binarryBtn;
+        private RadioButton jumpSearchCheck;
+        private RadioButton binarrySearchCheck;
         private Label labelInput;
         private Label labelOutput;
         private TextBox textBoxInputText;
@@ -278,7 +283,7 @@
         private Label labelSelectSearchAlgr;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem infoToolStripMenuItem;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxCollectionType;
         private Label label1;
     }
 }

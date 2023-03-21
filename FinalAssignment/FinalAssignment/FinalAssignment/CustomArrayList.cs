@@ -2,7 +2,7 @@
 
 namespace FinalAssignment;
 
-public class CustomArrayList<T> : ISortable, ISearchable, IInsertable where T : new()
+public class CustomArrayList<T> : ISortable, ISearchable, IInsertable<T> where T : InputType
 {
     private T[] _array;
     private int _count;
@@ -23,17 +23,26 @@ public class CustomArrayList<T> : ISortable, ISearchable, IInsertable where T : 
     }
 
 
-    public InputType[] QuickSort(T[] _array, int left, int right)
+    public InputType[] QuickSort()
     {
-        if (left < right)
-        {
-            int pivotIndex = Partition(_array, left, right);
-            QuickSort(_array, left, pivotIndex - 1);
-            QuickSort(_array, pivotIndex + 1, right);
-        }
+
+        // if (left < right)
+        // {
+        //     int pivotIndex = Partition(_array, left, right);
+        //     Swap(_array, left, pivotIndex - 1);
+        //     Swap(_array, pivotIndex + 1, right);
+        // }
 
 
         throw new NotImplementedException();
+    }
+
+    private T[] Swap(T[] _array, int i, int j)
+    {
+        T temp = _array[i];
+        _array[i] = _array[j];
+        _array[j] = temp;
+        return _array;
     }
    
     /*private int Partition(T[] _array, int left, int right)
@@ -57,36 +66,18 @@ public class CustomArrayList<T> : ISortable, ISearchable, IInsertable where T : 
         throw new NotImplementedException();
     }
 
-    public void AddElement(T item)
+    public void Add(T item)
     {
-
         if (item == null) throw new ArgumentNullException();
 
         if(this._count == this._array.Length) 
         {
-            T[] newArray = new T[_array.Length * 2];
-            Array.Copy(_array, 0, newArray, 0, _array.Length);
+            T[] newArray = new T[this._array.Length * 2];
+            Array.Copy(this._array, 0, newArray, 0, this._array.Length);
             _array = newArray;
         }
 
-        _array[_count] = item;
-        _count++;
-
-        // TODO: When array reaches capacity limit, increase the size of the array by the incrementer and keep the old values
-        throw new NotImplementedException();
-    }
-
-    public void Insert(InputType obj)
-    {
-        // Create a new T object from the InputType object
-        T item = new T();
-
-        // Call the AddElement method to add the item to the array
-        AddElement(item);
-    }
-
-    public InputType[] QuickSort<T>(T[] array) where T : IComparable<T>
-    {
-        throw new NotImplementedException();
+        this._array[_count] = item;
+        this._count++;
     }
 }
