@@ -76,17 +76,28 @@ namespace FinalAssignment
             InputType input = new(textBoxInputText.Text);
             this._binaryTree.Add(input);
             this._arrayList.Add(input);
+           //this._arrayList.QuickSort();
             this._linkedList.Add(input);
             textBoxInputText.Text = "";
         }
 
-        private void buttonGenerate_Click(object sender, EventArgs e)
+        private void buttonGenerate_Click_1(object sender, EventArgs e)
         {
-            InputType[] sortedArray = this._arrayList.QuickSort();
-            string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
-            textBoxOutput.Text = outputString;
-        }
+            if(quickSortCheck.Checked) 
+            {
+                InputType[] sortedArray = this._arrayList.QuickSort();
+                string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
+                textBoxOutput.Text = outputString;
+            }
+            else if(insertSortCheck.Checked)
+            {
+                InputType[] sortedArray = this._arrayList.InsertSort();
+                string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
+                textBoxOutput.Text = outputString;
+            }
             
+        }
+
         private void buttonBTInOrder_Click(object sender, EventArgs e)
         {
             StringBuilder output = new("In Order Traversal:\n");
