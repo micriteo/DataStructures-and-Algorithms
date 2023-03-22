@@ -1,3 +1,5 @@
+using System;
+
 namespace FinalAssignment
 {
     public partial class MainForm : Form
@@ -7,7 +9,9 @@ namespace FinalAssignment
         private CustomArrayList<InputType> _arrayList;
         public MainForm()
         {
+            this._arrayList = new CustomArrayList<InputType>();
             InitializeComponent();
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,6 +48,20 @@ namespace FinalAssignment
                 // Removing any checked items from those which are supposed to be disabled
                 binarrySearchCheck.Checked = false;
             }
+        }
+
+        private void buttonInsert_Click(object sender, EventArgs e)
+        {
+            InputType input = new(textBoxInputText.Text);
+            this._arrayList.Add(input);
+            textBoxInputText.Text = "";
+        }
+
+        private void generateBtn_Click(object sender, EventArgs e)
+        {
+            InputType[] sortedArray = this._arrayList.QuickSort();
+            string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
+            textBoxOutput.Text = outputString;
         }
     }
 }
