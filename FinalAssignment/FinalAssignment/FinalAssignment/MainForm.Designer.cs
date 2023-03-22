@@ -37,7 +37,7 @@
             labelOutput = new Label();
             textBoxInputText = new TextBox();
             textBoxOutput = new TextBox();
-            generateBtn = new Button();
+            buttonGenerate = new Button();
             buttonInsert = new Button();
             labelExecutionTime = new Label();
             labelSelectSortAlgr = new Label();
@@ -46,6 +46,9 @@
             infoToolStripMenuItem = new ToolStripMenuItem();
             comboBoxCollectionType = new ComboBox();
             label1 = new Label();
+            buttonBTInOrder = new Button();
+            buttonBTPreOrder = new Button();
+            buttonBTPostOrder = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -142,15 +145,15 @@
             textBoxOutput.Size = new Size(334, 123);
             textBoxOutput.TabIndex = 8;
             // 
-            // generateBtn
+            // buttonGenerate
             // 
-            generateBtn.Location = new Point(454, 198);
-            generateBtn.Name = "generateBtn";
-            generateBtn.Size = new Size(114, 34);
-            generateBtn.TabIndex = 10;
-            generateBtn.Text = "Generate ";
-            generateBtn.UseVisualStyleBackColor = true;
-            generateBtn.Click += generateBtn_Click;
+            buttonGenerate.Location = new Point(972, 488);
+            buttonGenerate.Margin = new Padding(6, 7, 6, 7);
+            buttonGenerate.Name = "buttonGenerate";
+            buttonGenerate.Size = new Size(244, 84);
+            buttonGenerate.TabIndex = 10;
+            buttonGenerate.Text = "Generate ";
+            buttonGenerate.UseVisualStyleBackColor = true;
             // 
             // buttonInsert
             // 
@@ -230,18 +233,54 @@
             label1.TabIndex = 17;
             label1.Text = "Collection";
             // 
+            // buttonBTInOrder
+            // 
+            buttonBTInOrder.Location = new Point(195, 520);
+            buttonBTInOrder.Name = "buttonBTInOrder";
+            buttonBTInOrder.Size = new Size(169, 52);
+            buttonBTInOrder.TabIndex = 18;
+            buttonBTInOrder.Text = "In Order";
+            buttonBTInOrder.UseVisualStyleBackColor = true;
+            buttonBTInOrder.Visible = false;
+            buttonBTInOrder.Click += buttonBTInOrder_Click;
+            // 
+            // buttonBTPreOrder
+            // 
+            buttonBTPreOrder.Location = new Point(474, 520);
+            buttonBTPreOrder.Name = "buttonBTPreOrder";
+            buttonBTPreOrder.Size = new Size(169, 52);
+            buttonBTPreOrder.TabIndex = 19;
+            buttonBTPreOrder.Text = "Pre Order";
+            buttonBTPreOrder.UseVisualStyleBackColor = true;
+            buttonBTPreOrder.Visible = false;
+            buttonBTPreOrder.Click += buttonBTPreOrder_Click;
+            // 
+            // buttonBTPostOrder
+            // 
+            buttonBTPostOrder.Location = new Point(737, 520);
+            buttonBTPostOrder.Name = "buttonBTPostOrder";
+            buttonBTPostOrder.Size = new Size(169, 52);
+            buttonBTPostOrder.TabIndex = 20;
+            buttonBTPostOrder.Text = "Post Order";
+            buttonBTPostOrder.UseVisualStyleBackColor = true;
+            buttonBTPostOrder.Visible = false;
+            buttonBTPostOrder.Click += buttonBTPostOrder_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(607, 276);
+            ClientSize = new Size(1300, 681);
+            Controls.Add(buttonBTPostOrder);
+            Controls.Add(buttonBTPreOrder);
+            Controls.Add(buttonBTInOrder);
             Controls.Add(label1);
             Controls.Add(comboBoxCollectionType);
             Controls.Add(labelSelectSearchAlgr);
             Controls.Add(labelSelectSortAlgr);
             Controls.Add(labelExecutionTime);
             Controls.Add(buttonInsert);
-            Controls.Add(generateBtn);
+            Controls.Add(buttonGenerate);
             Controls.Add(textBoxOutput);
             Controls.Add(textBoxInputText);
             Controls.Add(labelOutput);
@@ -253,6 +292,10 @@
             Controls.Add(labelTitle);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(6, 7, 6, 7);
+            MaximizeBox = false;
+            MaximumSize = new Size(1328, 760);
+            MinimumSize = new Size(1328, 760);
             Name = "MainForm";
             Text = "Data Structures Final Assignment";
             menuStrip1.ResumeLayout(false);
@@ -272,7 +315,7 @@
         private Label labelOutput;
         private TextBox textBoxInputText;
         private TextBox textBoxOutput;
-        private Button generateBtn;
+        private Button buttonGenerate;
         private Button buttonInsert;
         private Label labelExecutionTime;
         private Label labelSelectSortAlgr;
@@ -281,5 +324,8 @@
         private ToolStripMenuItem infoToolStripMenuItem;
         private ComboBox comboBoxCollectionType;
         private Label label1;
+        private Button buttonBTInOrder;
+        private Button buttonBTPreOrder;
+        private Button buttonBTPostOrder;
     }
 }

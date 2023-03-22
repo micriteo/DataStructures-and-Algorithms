@@ -52,7 +52,7 @@ public class InputType : IComparable
         if (this.Value is string)
         {
             string currentValue = this.Value as string;
-            return currentValue.CompareTo(obj);
+            return currentValue.CompareTo(obj.ToString());
         }
         else if (obj is int || obj is double)
         {

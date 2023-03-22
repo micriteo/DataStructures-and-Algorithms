@@ -1,4 +1,5 @@
-using System;
+using System.Diagnostics;
+using System.Text;
 
 namespace FinalAssignment
 {
@@ -7,8 +8,13 @@ namespace FinalAssignment
         private CustomBinaryTree<InputType> _binaryTree;
         private CustomLinkedList<InputType> _linkedList;
         private CustomArrayList<InputType> _arrayList;
+        private string _labelExecutionTime = "Execution Time: ";
+
         public MainForm()
         {
+
+            this._binaryTree = new CustomBinaryTree<InputType>();
+            this._linkedList = new CustomLinkedList<InputType>();
             this._arrayList = new CustomArrayList<InputType>();
             InitializeComponent();
 
@@ -27,6 +33,11 @@ namespace FinalAssignment
                 insertSortCheck.Checked = false;
                 quickSortCheck.Checked = false;
                 jumpSearchCheck.Checked = false;
+                // Display buttons for the collection
+                buttonBTInOrder.Visible = true;
+                buttonBTPreOrder.Visible = true;
+                buttonBTPostOrder.Visible = true;
+                buttonGenerate.Enabled = false;
             }
             else if (comboBoxCollectionType.SelectedItem.ToString().Equals("LinkedList"))
             {
@@ -37,31 +48,73 @@ namespace FinalAssignment
                 binarrySearchCheck.Enabled = false;
                 // Removing any checked items from those which are supposed to be disabled
                 binarrySearchCheck.Checked = false;
+                // Hide buttons for the collection
+                buttonBTInOrder.Visible = false;
+                buttonBTPreOrder.Visible = false;
+                buttonBTPostOrder.Visible = false;
+                buttonGenerate.Enabled = true;
             }
             else if (comboBoxCollectionType.SelectedItem.ToString().Equals("ArrayList"))
             {
                 jumpSearchCheck.Enabled = true;
                 insertSortCheck.Enabled = true;
                 quickSortCheck.Enabled = true;
-                // Disabling algorithms which are not supported by the collection
+                // Disabling algorithms which are not supported by the collecstion
                 binarrySearchCheck.Enabled = false;
                 // Removing any checked items from those which are supposed to be disabled
                 binarrySearchCheck.Checked = false;
+                // Hide buttons for the collection
+                buttonBTInOrder.Visible = false;
+                buttonBTPreOrder.Visible = false;
+                buttonBTPostOrder.Visible = false;
+                buttonGenerate.Enabled = true;
             }
         }
 
         private void buttonInsert_Click(object sender, EventArgs e)
         {
             InputType input = new(textBoxInputText.Text);
+            this._binaryTree.Add(input);
             this._arrayList.Add(input);
+            this._linkedList.Add(input);
             textBoxInputText.Text = "";
         }
 
-        private void generateBtn_Click(object sender, EventArgs e)
+        private void buttonGenerate_Click(object sender, EventArgs e)
         {
             InputType[] sortedArray = this._arrayList.QuickSort();
             string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
             textBoxOutput.Text = outputString;
+        }
+            
+        private void buttonBTInOrder_Click(object sender, EventArgs e)
+        {
+            StringBuilder output = new("In Order Traversal:\n");
+
+            var executionTime = Stopwatch.StartNew();
+            this._binaryTree.InorderTraversal(this._binaryTree.Root, ref output);
+            executionTime.Stop();
+
+            textBoxOutput.Text = output.ToString();
+            labelExecutionTime.Text = $"{this._labelExecutionTime}{executionTime.ElapsedMilliseconds}";
+        }
+
+        private void buttonBTPreOrder_Click(object sender, EventArgs e)
+        {
+            StringBuilder output = new("Pre Order Traversal:\n");
+
+            this._binaryTree.PreorderTraversal(this._binaryTree.Root, ref output);
+
+            textBoxOutput.Text = output.ToString();
+        }
+
+        private void buttonBTPostOrder_Click(object sender, EventArgs e)
+        {
+            StringBuilder output = new("Post Order Traversal:\n");
+
+            this._binaryTree.PostorderTraversal(this._binaryTree.Root, ref output);
+
+            textBoxOutput.Text = output.ToString();
         }
     }
 }
