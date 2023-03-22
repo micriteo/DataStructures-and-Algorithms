@@ -99,8 +99,20 @@ public class CustomArrayList<T> : ISortable, ISearchable, IInsertable<T> where T
             Array.Copy(this._array, 0, newArray, 0, this._array.Length);
             _array = newArray;
         }
+        // Find the index to insert the new element
+        int insertIndex = 0;
+        while (insertIndex < this._count && item.CompareTo(this._array[insertIndex]) > 0)
+        {
+            insertIndex++;
+        }
 
-        this._array[_count] = item;
+        // Shift the existing elements to make space for the new element
+        for (int i = this._count - 1; i >= insertIndex; i--)
+        {
+            this._array[i + 1] = this._array[i];
+        }
+        // Insert the new element
+        this._array[insertIndex] = item;
         this._count++;
     }
 }
