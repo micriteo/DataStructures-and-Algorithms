@@ -56,10 +56,9 @@
             // 
             labelTitle.AutoSize = true;
             labelTitle.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labelTitle.Location = new Point(85, 59);
-            labelTitle.Margin = new Padding(6, 0, 6, 0);
+            labelTitle.Location = new Point(40, 24);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(1142, 65);
+            labelTitle.Size = new Size(497, 30);
             labelTitle.TabIndex = 0;
             labelTitle.Text = "Data Structures and Algorithms Final Assignment";
             // 
@@ -67,10 +66,9 @@
             // 
             quickSortCheck.AutoSize = true;
             quickSortCheck.Enabled = false;
-            quickSortCheck.Location = new Point(927, 211);
-            quickSortCheck.Margin = new Padding(6, 7, 6, 7);
+            quickSortCheck.Location = new Point(433, 86);
             quickSortCheck.Name = "quickSortCheck";
-            quickSortCheck.Size = new Size(170, 41);
+            quickSortCheck.Size = new Size(80, 19);
             quickSortCheck.TabIndex = 1;
             quickSortCheck.TabStop = true;
             quickSortCheck.Text = "Quick Sort";
@@ -80,10 +78,9 @@
             // 
             insertSortCheck.AutoSize = true;
             insertSortCheck.Enabled = false;
-            insertSortCheck.Location = new Point(927, 266);
-            insertSortCheck.Margin = new Padding(6, 7, 6, 7);
+            insertSortCheck.Location = new Point(433, 108);
             insertSortCheck.Name = "insertSortCheck";
-            insertSortCheck.Size = new Size(152, 41);
+            insertSortCheck.Size = new Size(71, 19);
             insertSortCheck.TabIndex = 2;
             insertSortCheck.TabStop = true;
             insertSortCheck.Text = "Add Sort";
@@ -93,10 +90,9 @@
             // 
             jumpSearchCheck.AutoSize = true;
             jumpSearchCheck.Enabled = false;
-            jumpSearchCheck.Location = new Point(927, 376);
-            jumpSearchCheck.Margin = new Padding(6, 7, 6, 7);
+            jumpSearchCheck.Location = new Point(433, 152);
             jumpSearchCheck.Name = "jumpSearchCheck";
-            jumpSearchCheck.Size = new Size(198, 41);
+            jumpSearchCheck.Size = new Size(93, 19);
             jumpSearchCheck.TabIndex = 3;
             jumpSearchCheck.TabStop = true;
             jumpSearchCheck.Text = "Jump-search";
@@ -106,10 +102,9 @@
             // 
             binarrySearchCheck.AutoSize = true;
             binarrySearchCheck.Enabled = false;
-            binarrySearchCheck.Location = new Point(927, 431);
-            binarrySearchCheck.Margin = new Padding(6, 7, 6, 7);
+            binarrySearchCheck.Location = new Point(433, 175);
             binarrySearchCheck.Name = "binarrySearchCheck";
-            binarrySearchCheck.Size = new Size(262, 41);
+            binarrySearchCheck.Size = new Size(120, 19);
             binarrySearchCheck.TabIndex = 4;
             binarrySearchCheck.TabStop = true;
             binarrySearchCheck.Text = "Binary Search Tree";
@@ -118,40 +113,36 @@
             // labelInput
             // 
             labelInput.AutoSize = true;
-            labelInput.Location = new Point(49, 167);
-            labelInput.Margin = new Padding(6, 0, 6, 0);
+            labelInput.Location = new Point(23, 68);
             labelInput.Name = "labelInput";
-            labelInput.Size = new Size(79, 37);
+            labelInput.Size = new Size(35, 15);
             labelInput.TabIndex = 5;
             labelInput.Text = "Input";
             // 
             // labelOutput
             // 
             labelOutput.AutoSize = true;
-            labelOutput.Location = new Point(48, 274);
-            labelOutput.Margin = new Padding(6, 0, 6, 0);
+            labelOutput.Location = new Point(22, 111);
             labelOutput.Name = "labelOutput";
-            labelOutput.Size = new Size(101, 37);
+            labelOutput.Size = new Size(45, 15);
             labelOutput.TabIndex = 6;
             labelOutput.Text = "Output";
             // 
             // textBoxInputText
             // 
-            textBoxInputText.Location = new Point(195, 157);
-            textBoxInputText.Margin = new Padding(6, 7, 6, 7);
+            textBoxInputText.Location = new Point(91, 64);
             textBoxInputText.Multiline = true;
             textBoxInputText.Name = "textBoxInputText";
-            textBoxInputText.Size = new Size(589, 52);
+            textBoxInputText.Size = new Size(277, 23);
             textBoxInputText.TabIndex = 7;
             // 
             // textBoxOutput
             // 
-            textBoxOutput.Location = new Point(195, 274);
-            textBoxOutput.Margin = new Padding(6, 7, 6, 7);
+            textBoxOutput.Location = new Point(91, 111);
             textBoxOutput.Multiline = true;
             textBoxOutput.Name = "textBoxOutput";
             textBoxOutput.ReadOnly = true;
-            textBoxOutput.Size = new Size(711, 298);
+            textBoxOutput.Size = new Size(334, 123);
             textBoxOutput.TabIndex = 8;
             // 
             // buttonGenerate
@@ -166,9 +157,10 @@
             // 
             // buttonInsert
             // 
-            buttonInsert.Location = new Point(793, 157);
+            buttonInsert.Location = new Point(370, 64);
+            buttonInsert.Margin = new Padding(1);
             buttonInsert.Name = "buttonInsert";
-            buttonInsert.Size = new Size(113, 52);
+            buttonInsert.Size = new Size(53, 21);
             buttonInsert.TabIndex = 11;
             buttonInsert.Text = "Add";
             buttonInsert.UseVisualStyleBackColor = true;
@@ -177,27 +169,30 @@
             // labelExecutionTime
             // 
             labelExecutionTime.AutoSize = true;
-            labelExecutionTime.Location = new Point(195, 602);
+            labelExecutionTime.Location = new Point(91, 244);
+            labelExecutionTime.Margin = new Padding(1, 0, 1, 0);
             labelExecutionTime.Name = "labelExecutionTime";
-            labelExecutionTime.Size = new Size(197, 37);
+            labelExecutionTime.Size = new Size(89, 15);
             labelExecutionTime.TabIndex = 12;
             labelExecutionTime.Text = "Execution time:";
             // 
             // labelSelectSortAlgr
             // 
             labelSelectSortAlgr.AutoSize = true;
-            labelSelectSortAlgr.Location = new Point(927, 157);
+            labelSelectSortAlgr.Location = new Point(433, 64);
+            labelSelectSortAlgr.Margin = new Padding(1, 0, 1, 0);
             labelSelectSortAlgr.Name = "labelSelectSortAlgr";
-            labelSelectSortAlgr.Size = new Size(289, 37);
+            labelSelectSortAlgr.Size = new Size(128, 15);
             labelSelectSortAlgr.TabIndex = 13;
             labelSelectSortAlgr.Text = "Select a sort algorthim:";
             // 
             // labelSelectSearchAlgr
             // 
             labelSelectSearchAlgr.AutoSize = true;
-            labelSelectSearchAlgr.Location = new Point(927, 332);
+            labelSelectSearchAlgr.Location = new Point(433, 135);
+            labelSelectSearchAlgr.Margin = new Padding(1, 0, 1, 0);
             labelSelectSearchAlgr.Name = "labelSelectSearchAlgr";
-            labelSelectSearchAlgr.Size = new Size(319, 37);
+            labelSelectSearchAlgr.Size = new Size(142, 15);
             labelSelectSearchAlgr.TabIndex = 14;
             labelSelectSearchAlgr.Text = "Select a search algorthim:";
             // 
@@ -207,33 +202,34 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { infoToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1300, 45);
+            menuStrip1.Padding = new Padding(3, 1, 0, 1);
+            menuStrip1.Size = new Size(607, 24);
             menuStrip1.TabIndex = 15;
             menuStrip1.Text = "menuStrip1";
             // 
             // infoToolStripMenuItem
             // 
             infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            infoToolStripMenuItem.Size = new Size(85, 41);
+            infoToolStripMenuItem.Size = new Size(40, 22);
             infoToolStripMenuItem.Text = "Info";
             // 
             // comboBoxCollectionType
             // 
             comboBoxCollectionType.FormattingEnabled = true;
             comboBoxCollectionType.Items.AddRange(new object[] { "LinkedList", "BinaryTree", "ArrayList" });
-            comboBoxCollectionType.Location = new Point(195, 219);
+            comboBoxCollectionType.Location = new Point(91, 89);
+            comboBoxCollectionType.Margin = new Padding(1);
             comboBoxCollectionType.Name = "comboBoxCollectionType";
-            comboBoxCollectionType.Size = new Size(711, 45);
+            comboBoxCollectionType.Size = new Size(334, 23);
             comboBoxCollectionType.TabIndex = 16;
             comboBoxCollectionType.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(49, 224);
-            label1.Margin = new Padding(6, 0, 6, 0);
+            label1.Location = new Point(23, 91);
             label1.Name = "label1";
-            label1.Size = new Size(137, 37);
+            label1.Size = new Size(61, 15);
             label1.TabIndex = 17;
             label1.Text = "Collection";
             // 
@@ -272,7 +268,7 @@
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(15F, 37F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1300, 681);
             Controls.Add(buttonBTPostOrder);

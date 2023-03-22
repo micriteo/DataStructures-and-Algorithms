@@ -12,10 +12,12 @@ namespace FinalAssignment
 
         public MainForm()
         {
+
             this._binaryTree = new CustomBinaryTree<InputType>();
             this._linkedList = new CustomLinkedList<InputType>();
             this._arrayList = new CustomArrayList<InputType>();
             InitializeComponent();
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,6 +80,13 @@ namespace FinalAssignment
             textBoxInputText.Text = "";
         }
 
+        private void buttonGenerate_Click(object sender, EventArgs e)
+        {
+            InputType[] sortedArray = this._arrayList.QuickSort();
+            string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
+            textBoxOutput.Text = outputString;
+        }
+            
         private void buttonBTInOrder_Click(object sender, EventArgs e)
         {
             StringBuilder output = new("In Order Traversal:\n");
