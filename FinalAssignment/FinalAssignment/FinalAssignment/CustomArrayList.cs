@@ -2,7 +2,7 @@
 
 namespace FinalAssignment;
 
-public class CustomArrayList<T> : ISortable, ISearchable, IInsertable<T> where T : IComparable
+public class CustomArrayList<T> : ISortable, ISearchable, ICustomCollection<T> where T : IComparable
 {
     private T[] _array;
     private int _count;
@@ -114,5 +114,10 @@ public class CustomArrayList<T> : ISortable, ISearchable, IInsertable<T> where T
         // Insert the new element
         this._array[insertIndex] = item;
         this._count++;
+    }
+
+    public void Clear()
+    {
+        throw new NotImplementedException();
     }
 }

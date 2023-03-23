@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace FinalAssignment;
 
-public class CustomBinaryTree<T>:IInsertable<T> where T:IComparable
+public class CustomBinaryTree<T>:ICustomCollection<T> where T:IComparable
 {
     private BinaryTreeNode<T> _root;
     public BinaryTreeNode<T> Root => this._root;
@@ -51,7 +51,7 @@ public class CustomBinaryTree<T>:IInsertable<T> where T:IComparable
 
             while (true)
             {
-                if (currentNode.Value.CompareTo(insertedValue) >= 1)
+                if (currentNode.Value.CompareTo(insertedValue) <= -1)
                 {
                     if (currentNode.Left is null)
                     {
@@ -63,7 +63,7 @@ public class CustomBinaryTree<T>:IInsertable<T> where T:IComparable
                         currentNode = currentNode.Left;
                     }
                 }
-                else
+                else if (currentNode.Value.CompareTo(insertedValue) >= 1)
                 {
                     if (currentNode.Right is null)
                     {
@@ -74,6 +74,11 @@ public class CustomBinaryTree<T>:IInsertable<T> where T:IComparable
                     {
                         currentNode = currentNode.Right;
                     }
+                }
+                else
+                {
+                    // The value is already in the tree
+                    break;
                 }
             }
         }
