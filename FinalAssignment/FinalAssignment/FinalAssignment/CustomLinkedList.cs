@@ -2,7 +2,7 @@
 
 namespace FinalAssignment;
 
-public class CustomLinkedList<T> where T:IComparable
+public class CustomLinkedList<T> : ICustomCollection<T>, ISortable<T> where T:IComparable
 {
     private LinkedListNode<T> _headNode;
 
@@ -137,5 +137,20 @@ public class CustomLinkedList<T> where T:IComparable
         {
             throw new IndexOutOfRangeException();
         }
+    }
+
+    public void Clear()
+    {
+        throw new NotImplementedException();
+    }
+
+    public T[] QuickSort()
+    {
+        throw new NotImplementedException();
+    }
+
+    public T[] InsertSort()
+    {
+        throw new NotImplementedException();
     }
 }

@@ -2,7 +2,7 @@
 
 namespace FinalAssignment;
 
-public class CustomArrayList<T> : ISortable, ISearchable, IInsertable<T> where T : IComparable
+public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T> where T : IComparable
 {
     private T[] _array;
     private int _count;
@@ -23,7 +23,7 @@ public class CustomArrayList<T> : ISortable, ISearchable, IInsertable<T> where T
     }
 
 
-    public InputType[] QuickSort()
+    public T[] QuickSort()
     {
         // Call the helper function to perform QuickSort on the entire array
         QuickSortHelper(0, _count - 1);
@@ -35,7 +35,7 @@ public class CustomArrayList<T> : ISortable, ISearchable, IInsertable<T> where T
             string valueString = _array[i].ToString();
             result[i] = new InputType(valueString);
         }
-        return result;  
+        return result as T[];  
     }
 
     private void QuickSortHelper(int left, int right)
@@ -146,5 +146,10 @@ public class CustomArrayList<T> : ISortable, ISearchable, IInsertable<T> where T
         // Insert the new element
         this._array[insertIndex] = item;
         this._count++;
+    }
+
+    public void Clear()
+    {
+        throw new NotImplementedException();
     }
 }
