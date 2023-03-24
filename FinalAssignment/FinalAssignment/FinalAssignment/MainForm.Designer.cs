@@ -150,14 +150,16 @@
             // 
             // buttonGenerate
             // 
-            buttonGenerate.Location = new Point(957, 587);
-            buttonGenerate.Margin = new Padding(13, 17, 13, 17);
+            buttonGenerate.ImageAlign = ContentAlignment.BottomRight;
+            buttonGenerate.Location = new Point(972, 488);
+            buttonGenerate.Margin = new Padding(6, 7, 6, 7);
             buttonGenerate.Name = "buttonGenerate";
-            buttonGenerate.Size = new Size(271, 123);
+            buttonGenerate.RightToLeft = RightToLeft.No;
+            buttonGenerate.Size = new Size(244, 84);
             buttonGenerate.TabIndex = 10;
             buttonGenerate.Text = "Generate ";
             buttonGenerate.UseVisualStyleBackColor = true;
-            buttonGenerate.Click += buttonGenerate_Click;
+            buttonGenerate.Click += buttonGenerate_Click_1;
             // 
             // buttonInsert
             // 
@@ -206,7 +208,9 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { infoToolStripMenuItem, importToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1306, 45);
+            menuStrip1.Padding = new Padding(3, 1, 0, 1);
+            menuStrip1.Size = new Size(1312, 24);
+
             menuStrip1.TabIndex = 15;
             menuStrip1.Text = "menuStrip1";
             // 
