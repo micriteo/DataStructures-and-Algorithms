@@ -62,6 +62,7 @@ public class InputType : IComparable
         {
             double result = Double.Parse(obj.ToString()) - Double.Parse(this.Value.ToString());
 
+            // Return -1 if the result is less than 0, 1 if the result is greater than 0, and 0 if the result is 0
             return result switch
             {
                 < 0 => -1,

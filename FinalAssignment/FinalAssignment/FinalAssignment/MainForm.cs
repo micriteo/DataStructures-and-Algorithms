@@ -24,42 +24,42 @@ namespace FinalAssignment
 
         private void InitializeToolTips()
         {
-            toolTipInputTextBox.SetToolTip(textBoxInputText, "Enter values to be added separated by a space!");
+            toolTipInputTextBox.SetToolTip(textBoxInputText, "Enter values to be added, separated by a space!");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Defining default status of buttons
+            binarrySearchCheck.Enabled = false;
+            binarrySearchCheck.Checked = false;
+            // Disabling algorithms 
+            insertSortCheck.Enabled = false;
+            quickSortCheck.Enabled = false;
+            jumpSearchCheck.Enabled = false;
+            // Removing any checked items 
+            insertSortCheck.Checked = false;
+            quickSortCheck.Checked = false;
+            jumpSearchCheck.Checked = false;
+            // Display buttons for the collection
+            buttonBTInOrder.Visible = false;
+            buttonBTPreOrder.Visible = false;
+            buttonBTPostOrder.Visible = false;
+            buttonGenerate.Enabled = false;
+
             if (comboBoxCollectionType.SelectedItem.ToString().Equals("BinaryTree"))
             {
                 binarrySearchCheck.Enabled = true;
                 binarrySearchCheck.Checked = true;
-                // Disabling algorithms which are not supported by the collection
-                insertSortCheck.Enabled = false;
-                quickSortCheck.Enabled = false;
-                jumpSearchCheck.Enabled = false;
-                // Removing any checked items from those which are supposed to be disabled
-                insertSortCheck.Checked = false;
-                quickSortCheck.Checked = false;
-                jumpSearchCheck.Checked = false;
                 // Display buttons for the collection
                 buttonBTInOrder.Visible = true;
                 buttonBTPreOrder.Visible = true;
                 buttonBTPostOrder.Visible = true;
-                buttonGenerate.Enabled = false;
             }
             else if (comboBoxCollectionType.SelectedItem.ToString().Equals("LinkedList"))
             {
                 insertSortCheck.Enabled = true;
                 quickSortCheck.Enabled = true;
                 // jumpSearchCheck.Enabled = true;
-                // Disabling algorithms which are not supported by the collection
-                binarrySearchCheck.Enabled = false;
-                // Removing any checked items from those which are supposed to be disabled
-                binarrySearchCheck.Checked = false;
-                // Hide buttons for the collection
-                buttonBTInOrder.Visible = false;
-                buttonBTPreOrder.Visible = false;
-                buttonBTPostOrder.Visible = false;
                 buttonGenerate.Enabled = true;
             }
             else if (comboBoxCollectionType.SelectedItem.ToString().Equals("ArrayList"))
@@ -67,14 +67,6 @@ namespace FinalAssignment
                 jumpSearchCheck.Enabled = true;
                 insertSortCheck.Enabled = true;
                 quickSortCheck.Enabled = true;
-                // Disabling algorithms which are not supported by the collecstion
-                binarrySearchCheck.Enabled = false;
-                // Removing any checked items from those which are supposed to be disabled
-                binarrySearchCheck.Checked = false;
-                // Hide buttons for the collection
-                buttonBTInOrder.Visible = false;
-                buttonBTPreOrder.Visible = false;
-                buttonBTPostOrder.Visible = false;
                 buttonGenerate.Enabled = true;
             }
         }
@@ -175,9 +167,9 @@ namespace FinalAssignment
 
         private void cSVToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Display warning message regarding big data submittions
+            // Display warning message regarding big data submissions
             MessageBox.Show(
-                "The application might crash upon submittion of a big collection of data!" +
+                "The application might crash upon submittion of a big collection of data!\n" +
                 "If that happens, close the application and submit a smaller size file.",
                 "Warning!",
                 MessageBoxButtons.OK,

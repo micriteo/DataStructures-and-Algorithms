@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using System.Xml.Linq;
 
 namespace FinalAssignment;
 
@@ -10,81 +9,78 @@ public class CustomBinaryTree<T>:ICustomCollection<T> where T:IComparable
 
     public void InorderTraversal(BinaryTreeNode<T> node, ref StringBuilder values)
     {
-        if (node is not null)
+        if (node is null)
         {
-            InorderTraversal(node.Left, ref values);
-            values.Append(node.Value);
-            values.Append(" ");
-            InorderTraversal(node.Right, ref values);
+            return;
         }
+
+        InorderTraversal(node.Left, ref values);
+        values.Append(node.Value);
+        values.Append(" ");
+        InorderTraversal(node.Right, ref values);
     }
 
     public void PreorderTraversal(BinaryTreeNode<T> node, ref StringBuilder values)
     {
-        if (node is not null)
+        if (node is null)
         {
-            values.Append(node.Value);
-            values.Append(" ");
-            PreorderTraversal(node.Left, ref values);
-            PreorderTraversal(node.Right, ref values);
+            return;    
         }
+
+        values.Append(node.Value);
+        values.Append(" ");
+        PreorderTraversal(node.Left, ref values);
+        PreorderTraversal(node.Right, ref values);
     }
 
     public void PostorderTraversal(BinaryTreeNode<T> node, ref StringBuilder values)
     {
-        if (node is not null)
+        if (node is null)
         {
-            PostorderTraversal(node.Left, ref values);
-            PostorderTraversal(node.Right, ref values);
-            values.Append(node.Value);
-            values.Append(" ");
+            return;
         }
+
+        PostorderTraversal(node.Left, ref values);
+        PostorderTraversal(node.Right, ref values);
+        values.Append(node.Value);
+        values.Append(" ");
     }
 
     public void Add(T insertedValue)
     {
-        BinaryTreeNode<T> node = new(insertedValue);
-
-        if (this.Root is not null)
+        if (this.Root is null)
         {
-            BinaryTreeNode<T> currentNode = this.Root;
-
-            while (true)
-            {
-                if (currentNode.Value.CompareTo(insertedValue) <= -1)
-                {
-                    if (currentNode.Left is null)
-                    {
-                        currentNode.Left = node;
-                        break;
-                    }
-                    else
-                    {
-                        currentNode = currentNode.Left;
-                    }
-                }
-                else if (currentNode.Value.CompareTo(insertedValue) >= 1)
-                {
-                    if (currentNode.Right is null)
-                    {
-                        currentNode.Right = node;
-                        break;
-                    }
-                    else
-                    {
-                        currentNode = currentNode.Right;
-                    }
-                }
-                else
-                {
-                    // The value is already in the tree
-                    break;
-                }
-            }
+            this._root = new(insertedValue);
         }
         else
         {
-            this._root = node;
+            this.AddRecursive(this.Root, insertedValue);
+        }
+    }
+
+    private void AddRecursive(BinaryTreeNode<T> currentNode, T insertedValue)
+    {
+        if (currentNode.Value.CompareTo(insertedValue) <= -1)
+        {
+            if (currentNode.Left is null)
+            {
+                currentNode.Left = new(insertedValue);
+            }
+            else
+            {
+                AddRecursive(currentNode.Left, insertedValue);
+            }
+        }
+        else if (currentNode.Value.CompareTo(insertedValue) >= 1)
+        {
+            if (currentNode.Right is null)
+            {
+                currentNode.Right = new(insertedValue);
+            }
+            else
+            {
+                AddRecursive(currentNode.Right, insertedValue);
+            }
         }
     }
 
