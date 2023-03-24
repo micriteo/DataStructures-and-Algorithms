@@ -153,4 +153,9 @@ public class CustomLinkedList<T> : ICustomCollection<T>, ISortable<T> where T:IC
     {
         throw new NotImplementedException();
     }
+
+    public T[] MergeSort()
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -16,7 +16,7 @@ namespace FinalAssignment
             this._binaryTree = new();
             this._linkedList = new();
             this._arrayList = new();
-            
+
             InitializeComponent();
             this.UpdateExecutionTimeLabel(0);
             this.InitializeToolTips();
@@ -74,7 +74,7 @@ namespace FinalAssignment
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             string input = textBoxInputText.Text;
-            
+
             // Split the input string into an array of strings
             string[] inputArray = input.Split(" ");
             // Loop through the array of strings and add each one to the collection
@@ -82,25 +82,25 @@ namespace FinalAssignment
             {
                 this.InsertInAllCollectionTypes(value);
             }
-            
+
             textBoxInputText.Text = "";
         }
 
         private void buttonGenerate_Click_1(object sender, EventArgs e)
         {
-            if(quickSortCheck.Checked) 
+            if (quickSortCheck.Checked)
             {
-                InputType[] sortedArray = this._arrayList.QuickSort();
+                InputType[] sortedArray = this._arrayList.MergeSort();
                 string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
                 textBoxOutput.Text = outputString;
             }
-            else if(insertSortCheck.Checked)
+            else if (insertSortCheck.Checked)
             {
                 InputType[] sortedArray = this._arrayList.InsertSort();
                 string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
                 textBoxOutput.Text = outputString;
             }
-            
+
         }
         private void buttonBTInOrder_Click(object sender, EventArgs e)
         {
@@ -110,7 +110,7 @@ namespace FinalAssignment
             this._binaryTree.InorderTraversal(this._binaryTree.Root, ref output);
             executionTime.Stop();
 
-            richTextBoxOutput.Text = output.ToString();
+            textBoxOutput.Text = output.ToString();
             this.UpdateExecutionTimeLabel(executionTime.ElapsedMilliseconds);
         }
 
@@ -122,7 +122,7 @@ namespace FinalAssignment
             this._binaryTree.PreorderTraversal(this._binaryTree.Root, ref output);
             executionTime.Stop();
 
-            richTextBoxOutput.Text = output.ToString();
+            textBoxOutput.Text = output.ToString();
             this.UpdateExecutionTimeLabel(executionTime.ElapsedMilliseconds);
         }
 
@@ -134,7 +134,7 @@ namespace FinalAssignment
             this._binaryTree.PostorderTraversal(this._binaryTree.Root, ref output);
             executionTime.Stop();
 
-            richTextBoxOutput.Text = output.ToString();
+            textBoxOutput.Text = output.ToString();
             this.UpdateExecutionTimeLabel(executionTime.ElapsedMilliseconds);
         }
 
@@ -142,7 +142,7 @@ namespace FinalAssignment
         {
             InputType[] sortedArray = this._arrayList.QuickSort();
             string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
-            richTextBoxOutput.Text = outputString;
+            textBoxOutput.Text = outputString;
         }
 
         private void UpdateExecutionTimeLabel(double executionTime)
@@ -178,7 +178,7 @@ namespace FinalAssignment
             this._binaryTree.Clear();
             this._arrayList.Clear();
             this._linkedList.Clear();
-            richTextBoxOutput.Text = "";
+            textBoxOutput.Text = "";
         }
 
         private void cSVToolStripMenuItem_Click(object sender, EventArgs e)

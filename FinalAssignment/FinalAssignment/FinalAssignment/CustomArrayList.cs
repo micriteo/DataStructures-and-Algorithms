@@ -23,73 +23,74 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T
     }
 
 
-    public T[] QuickSort()
+    public T[] MergeSort()
     {
-        // Call the helper function to perform QuickSort on the entire array
-        QuickSortHelper(0, _count - 1);
-
-        // Convert the sorted array to an array of InputType and return it
-        InputType[] result = new InputType[_count];
-        for (int i = 0; i < _count; i++)
-        {
-            string valueString = _array[i].ToString();
-            result[i] = new InputType(valueString);
-        }
-        return result as T[];  
+        T[] sortedArray = new T[this._count];
+        Array.Copy(_array, sortedArray, _count);
+        MergeSortHelper(sortedArray, 0, _count - 1);
+        return sortedArray;
     }
 
-    private void QuickSortHelper(int left, int right)
+    private void MergeSortHelper(T[] tempArray, int left, int right)
     {
-        // Check the base case
         if (left >= right) return;
-
-        // Choose a random pivot element
-        int pivotIndex = (left + right) / 2;
-        T pivot = _array[pivotIndex];
-
-        // Swap the pivot element with the last element in the current range
-        Swap(pivotIndex, right);
-
-        // Partition the array and get the index of the pivot
-        pivotIndex = Partition(left, right, pivot);
-
-        // Recursively sort the left and right subarrays
-        QuickSortHelper(left, pivotIndex - 1);
-        QuickSortHelper(pivotIndex + 1, right);
-    }
-
-    private int Partition(int left, int right, T pivot)
-    {
-        // Initialize the index of the smaller element
-        int i = left - 1;
-
-        // Loop through the range from left to right - 1
-        for (int j = left; j <= right; j++)
         {
-            // If the current element is less than or equal to the pivot, swap it with the element at the current index
-            if (_array[j].CompareTo(pivot) <= 0)
-            {
-                i++;
-                Swap(i, j);
-            }
+            int middle = (left + right) / 2;
+
+            MergeSortHelper(tempArray, left, middle);
+            MergeSortHelper(tempArray, middle + 1, right);
+
+            Merge(tempArray, left, middle, right);
         }
-        // Swap the pivot element with the element at the final index of the left subarray
-        Swap(i + 1, right);
-
-        // Return the index of the pivot
-        return i + 1;
     }
 
-    private void Swap(int i, int j)
+    private void Merge(T[] tempArray, int left, int middle, int right)
     {
-        if (i == j) return; // No need to swap if the indices are the same
+        // Create indices for the left and right subarrays
+        int leftIndex = left;
+        int rightIndex = middle + 1;
 
-        T temp = _array[i];
-        _array[i] = _array[j];
-        _array[j] = temp;
+        // Create an index for the temporary array
+        int tempIndex = 0;
+
+        // Loop through the left and right subarrays, adding the smaller element to the temporary array
+        while (leftIndex <= middle && rightIndex <= right)
+        {
+            if (_array[leftIndex].CompareTo(_array[rightIndex]) <= 0)
+            {
+                tempArray[tempIndex] = _array[leftIndex];
+                leftIndex++;
+            }
+            else
+            {
+                tempArray[tempIndex] = _array[rightIndex];
+                rightIndex++;
+            }
+            tempIndex++;
+        }
+
+        // Copy any remaining elements from the left subarray to the temporary array
+        while (leftIndex <= middle)
+        {
+            tempArray[tempIndex] = _array[leftIndex];
+            leftIndex++;
+            tempIndex++;
+        }
+
+        // Copy any remaining elements from the right subarray to the temporary array
+        while (rightIndex <= right)
+        {
+            tempArray[tempIndex] = _array[rightIndex];
+            rightIndex++;
+            tempIndex++;
+        }
+
+        // Copy the sorted elements from the temporary array back to the original array
+        Array.Copy(tempArray, 0, _array, left, tempIndex);
     }
 
- public InputType[] InsertSort()
+
+    public InputType[] InsertSort()
 {
     // Make a copy of the original array
     T[] copy = new T[_count];
@@ -149,6 +150,16 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T
     }
 
     public void Clear()
+    {
+        throw new NotImplementedException();
+    }
+
+    T[] ISortable<T>.InsertSort()
+    {
+        throw new NotImplementedException();
+    }
+
+    public T[] QuickSort()
     {
         throw new NotImplementedException();
     }

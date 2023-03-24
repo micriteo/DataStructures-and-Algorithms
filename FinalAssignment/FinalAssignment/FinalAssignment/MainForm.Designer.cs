@@ -51,7 +51,7 @@
             buttonBTInOrder = new Button();
             buttonBTPreOrder = new Button();
             buttonBTPostOrder = new Button();
-            richTextBoxOutput = new RichTextBox();
+            textBoxOutput = new RichTextBox();
             buttonClear = new Button();
             toolTipInputTextBox = new ToolTip(components);
             menuStrip1.SuspendLayout();
@@ -61,10 +61,9 @@
             // 
             labelTitle.AutoSize = true;
             labelTitle.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labelTitle.Location = new Point(86, 59);
-            labelTitle.Margin = new Padding(6, 0, 6, 0);
+            labelTitle.Location = new Point(40, 24);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(1142, 65);
+            labelTitle.Size = new Size(497, 30);
             labelTitle.TabIndex = 0;
             labelTitle.Text = "Data Structures and Algorithms Final Assignment";
             // 
@@ -72,10 +71,9 @@
             // 
             quickSortCheck.AutoSize = true;
             quickSortCheck.Enabled = false;
-            quickSortCheck.Location = new Point(928, 212);
-            quickSortCheck.Margin = new Padding(6, 7, 6, 7);
+            quickSortCheck.Location = new Point(433, 86);
             quickSortCheck.Name = "quickSortCheck";
-            quickSortCheck.Size = new Size(170, 41);
+            quickSortCheck.Size = new Size(80, 19);
             quickSortCheck.TabIndex = 1;
             quickSortCheck.TabStop = true;
             quickSortCheck.Text = "Quick Sort";
@@ -85,10 +83,9 @@
             // 
             insertSortCheck.AutoSize = true;
             insertSortCheck.Enabled = false;
-            insertSortCheck.Location = new Point(928, 266);
-            insertSortCheck.Margin = new Padding(6, 7, 6, 7);
+            insertSortCheck.Location = new Point(433, 108);
             insertSortCheck.Name = "insertSortCheck";
-            insertSortCheck.Size = new Size(152, 41);
+            insertSortCheck.Size = new Size(71, 19);
             insertSortCheck.TabIndex = 2;
             insertSortCheck.TabStop = true;
             insertSortCheck.Text = "Add Sort";
@@ -98,10 +95,9 @@
             // 
             jumpSearchCheck.AutoSize = true;
             jumpSearchCheck.Enabled = false;
-            jumpSearchCheck.Location = new Point(928, 382);
-            jumpSearchCheck.Margin = new Padding(6, 7, 6, 7);
+            jumpSearchCheck.Location = new Point(433, 155);
             jumpSearchCheck.Name = "jumpSearchCheck";
-            jumpSearchCheck.Size = new Size(198, 41);
+            jumpSearchCheck.Size = new Size(93, 19);
             jumpSearchCheck.TabIndex = 3;
             jumpSearchCheck.TabStop = true;
             jumpSearchCheck.Text = "Jump-search";
@@ -111,10 +107,9 @@
             // 
             binarrySearchCheck.AutoSize = true;
             binarrySearchCheck.Enabled = false;
-            binarrySearchCheck.Location = new Point(928, 439);
-            binarrySearchCheck.Margin = new Padding(6, 7, 6, 7);
+            binarrySearchCheck.Location = new Point(433, 178);
             binarrySearchCheck.Name = "binarrySearchCheck";
-            binarrySearchCheck.Size = new Size(262, 41);
+            binarrySearchCheck.Size = new Size(120, 19);
             binarrySearchCheck.TabIndex = 4;
             binarrySearchCheck.TabStop = true;
             binarrySearchCheck.Text = "Binary Search Tree";
@@ -123,39 +118,35 @@
             // labelInput
             // 
             labelInput.AutoSize = true;
-            labelInput.Location = new Point(49, 168);
-            labelInput.Margin = new Padding(6, 0, 6, 0);
+            labelInput.Location = new Point(23, 68);
             labelInput.Name = "labelInput";
-            labelInput.Size = new Size(79, 37);
+            labelInput.Size = new Size(35, 15);
             labelInput.TabIndex = 5;
             labelInput.Text = "Input";
             // 
             // labelOutput
             // 
             labelOutput.AutoSize = true;
-            labelOutput.Location = new Point(47, 274);
-            labelOutput.Margin = new Padding(6, 0, 6, 0);
+            labelOutput.Location = new Point(22, 111);
             labelOutput.Name = "labelOutput";
-            labelOutput.Size = new Size(101, 37);
+            labelOutput.Size = new Size(45, 15);
             labelOutput.TabIndex = 6;
             labelOutput.Text = "Output";
             // 
             // textBoxInputText
             // 
-            textBoxInputText.Location = new Point(196, 165);
-            textBoxInputText.Margin = new Padding(6, 7, 6, 7);
+            textBoxInputText.Location = new Point(91, 67);
             textBoxInputText.Name = "textBoxInputText";
-            textBoxInputText.Size = new Size(589, 43);
+            textBoxInputText.Size = new Size(277, 23);
             textBoxInputText.TabIndex = 7;
             // 
             // buttonGenerate
             // 
             buttonGenerate.ImageAlign = ContentAlignment.BottomRight;
-            buttonGenerate.Location = new Point(972, 488);
-            buttonGenerate.Margin = new Padding(6, 7, 6, 7);
+            buttonGenerate.Location = new Point(439, 226);
             buttonGenerate.Name = "buttonGenerate";
             buttonGenerate.RightToLeft = RightToLeft.No;
-            buttonGenerate.Size = new Size(244, 84);
+            buttonGenerate.Size = new Size(114, 34);
             buttonGenerate.TabIndex = 10;
             buttonGenerate.Text = "Generate ";
             buttonGenerate.UseVisualStyleBackColor = true;
@@ -163,10 +154,10 @@
             // 
             // buttonInsert
             // 
-            buttonInsert.Location = new Point(793, 165);
-            buttonInsert.Margin = new Padding(2);
+            buttonInsert.Location = new Point(370, 67);
+            buttonInsert.Margin = new Padding(1, 1, 1, 1);
             buttonInsert.Name = "buttonInsert";
-            buttonInsert.Size = new Size(113, 45);
+            buttonInsert.Size = new Size(53, 18);
             buttonInsert.TabIndex = 11;
             buttonInsert.Text = "Add";
             buttonInsert.UseVisualStyleBackColor = true;
@@ -175,30 +166,30 @@
             // labelExecutionTime
             // 
             labelExecutionTime.AutoSize = true;
-            labelExecutionTime.Location = new Point(195, 673);
-            labelExecutionTime.Margin = new Padding(2, 0, 2, 0);
+            labelExecutionTime.Location = new Point(91, 273);
+            labelExecutionTime.Margin = new Padding(1, 0, 1, 0);
             labelExecutionTime.Name = "labelExecutionTime";
-            labelExecutionTime.Size = new Size(202, 37);
+            labelExecutionTime.Size = new Size(91, 15);
             labelExecutionTime.TabIndex = 12;
             labelExecutionTime.Text = "Execution Time:";
             // 
             // labelSelectSortAlgr
             // 
             labelSelectSortAlgr.AutoSize = true;
-            labelSelectSortAlgr.Location = new Point(928, 158);
-            labelSelectSortAlgr.Margin = new Padding(2, 0, 2, 0);
+            labelSelectSortAlgr.Location = new Point(433, 64);
+            labelSelectSortAlgr.Margin = new Padding(1, 0, 1, 0);
             labelSelectSortAlgr.Name = "labelSelectSortAlgr";
-            labelSelectSortAlgr.Size = new Size(289, 37);
+            labelSelectSortAlgr.Size = new Size(128, 15);
             labelSelectSortAlgr.TabIndex = 13;
             labelSelectSortAlgr.Text = "Select a sort algorthim:";
             // 
             // labelSelectSearchAlgr
             // 
             labelSelectSearchAlgr.AutoSize = true;
-            labelSelectSearchAlgr.Location = new Point(928, 340);
-            labelSelectSearchAlgr.Margin = new Padding(2, 0, 2, 0);
+            labelSelectSearchAlgr.Location = new Point(433, 138);
+            labelSelectSearchAlgr.Margin = new Padding(1, 0, 1, 0);
             labelSelectSearchAlgr.Name = "labelSelectSearchAlgr";
-            labelSelectSearchAlgr.Size = new Size(319, 37);
+            labelSelectSearchAlgr.Size = new Size(142, 15);
             labelSelectSearchAlgr.TabIndex = 14;
             labelSelectSearchAlgr.Text = "Select a search algorthim:";
             // 
@@ -208,16 +199,15 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { infoToolStripMenuItem, importToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(3, 1, 0, 1);
-            menuStrip1.Size = new Size(1312, 24);
-
+            menuStrip1.Padding = new Padding(1, 0, 0, 0);
+            menuStrip1.Size = new Size(615, 24);
             menuStrip1.TabIndex = 15;
             menuStrip1.Text = "menuStrip1";
             // 
             // infoToolStripMenuItem
             // 
             infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            infoToolStripMenuItem.Size = new Size(85, 41);
+            infoToolStripMenuItem.Size = new Size(40, 24);
             infoToolStripMenuItem.Text = "Info";
             infoToolStripMenuItem.Click += infoToolStripMenuItem_Click;
             // 
@@ -225,13 +215,13 @@
             // 
             importToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cSVToolStripMenuItem });
             importToolStripMenuItem.Name = "importToolStripMenuItem";
-            importToolStripMenuItem.Size = new Size(119, 41);
+            importToolStripMenuItem.Size = new Size(55, 24);
             importToolStripMenuItem.Text = "Import";
             // 
             // cSVToolStripMenuItem
             // 
             cSVToolStripMenuItem.Name = "cSVToolStripMenuItem";
-            cSVToolStripMenuItem.Size = new Size(215, 48);
+            cSVToolStripMenuItem.Size = new Size(95, 22);
             cSVToolStripMenuItem.Text = "CSV";
             cSVToolStripMenuItem.Click += cSVToolStripMenuItem_Click;
             // 
@@ -239,29 +229,27 @@
             // 
             comboBoxCollectionType.FormattingEnabled = true;
             comboBoxCollectionType.Items.AddRange(new object[] { "LinkedList", "BinaryTree", "ArrayList" });
-            comboBoxCollectionType.Location = new Point(195, 220);
-            comboBoxCollectionType.Margin = new Padding(2);
+            comboBoxCollectionType.Location = new Point(91, 89);
+            comboBoxCollectionType.Margin = new Padding(1, 1, 1, 1);
             comboBoxCollectionType.Name = "comboBoxCollectionType";
-            comboBoxCollectionType.Size = new Size(711, 45);
+            comboBoxCollectionType.Size = new Size(334, 23);
             comboBoxCollectionType.TabIndex = 16;
             comboBoxCollectionType.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(49, 224);
-            label1.Margin = new Padding(6, 0, 6, 0);
+            label1.Location = new Point(23, 91);
             label1.Name = "label1";
-            label1.Size = new Size(137, 37);
+            label1.Size = new Size(61, 15);
             label1.TabIndex = 17;
             label1.Text = "Collection";
             // 
             // buttonBTInOrder
             // 
-            buttonBTInOrder.Location = new Point(195, 586);
-            buttonBTInOrder.Margin = new Padding(6, 7, 6, 7);
+            buttonBTInOrder.Location = new Point(91, 238);
             buttonBTInOrder.Name = "buttonBTInOrder";
-            buttonBTInOrder.Size = new Size(236, 56);
+            buttonBTInOrder.Size = new Size(110, 23);
             buttonBTInOrder.TabIndex = 18;
             buttonBTInOrder.Text = "In Order";
             buttonBTInOrder.UseVisualStyleBackColor = true;
@@ -270,10 +258,9 @@
             // 
             // buttonBTPreOrder
             // 
-            buttonBTPreOrder.Location = new Point(443, 587);
-            buttonBTPreOrder.Margin = new Padding(6, 7, 6, 7);
+            buttonBTPreOrder.Location = new Point(207, 238);
             buttonBTPreOrder.Name = "buttonBTPreOrder";
-            buttonBTPreOrder.Size = new Size(231, 54);
+            buttonBTPreOrder.Size = new Size(108, 22);
             buttonBTPreOrder.TabIndex = 19;
             buttonBTPreOrder.Text = "Pre Order";
             buttonBTPreOrder.UseVisualStyleBackColor = true;
@@ -282,30 +269,31 @@
             // 
             // buttonBTPostOrder
             // 
-            buttonBTPostOrder.Location = new Point(686, 588);
-            buttonBTPostOrder.Margin = new Padding(6, 7, 6, 7);
+            buttonBTPostOrder.Location = new Point(320, 238);
             buttonBTPostOrder.Name = "buttonBTPostOrder";
-            buttonBTPostOrder.Size = new Size(220, 54);
+            buttonBTPostOrder.Size = new Size(103, 22);
             buttonBTPostOrder.TabIndex = 20;
             buttonBTPostOrder.Text = "Post Order";
             buttonBTPostOrder.UseVisualStyleBackColor = true;
             buttonBTPostOrder.Visible = false;
             buttonBTPostOrder.Click += buttonBTPostOrder_Click;
             // 
-            // richTextBoxOutput
+            // textBoxOutput
             // 
-            richTextBoxOutput.Location = new Point(195, 274);
-            richTextBoxOutput.Name = "richTextBoxOutput";
-            richTextBoxOutput.ReadOnly = true;
-            richTextBoxOutput.Size = new Size(711, 303);
-            richTextBoxOutput.TabIndex = 21;
-            richTextBoxOutput.Text = "";
+            textBoxOutput.Location = new Point(91, 111);
+            textBoxOutput.Margin = new Padding(1, 1, 1, 1);
+            textBoxOutput.Name = "textBoxOutput";
+            textBoxOutput.ReadOnly = true;
+            textBoxOutput.Size = new Size(334, 125);
+            textBoxOutput.TabIndex = 21;
+            textBoxOutput.Text = "";
             // 
             // buttonClear
             // 
-            buttonClear.Location = new Point(957, 515);
+            buttonClear.Location = new Point(439, 268);
+            buttonClear.Margin = new Padding(1, 1, 1, 1);
             buttonClear.Name = "buttonClear";
-            buttonClear.Size = new Size(271, 62);
+            buttonClear.Size = new Size(126, 25);
             buttonClear.TabIndex = 22;
             buttonClear.Text = "Clear";
             buttonClear.UseVisualStyleBackColor = true;
@@ -313,11 +301,11 @@
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(15F, 37F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1306, 754);
+            ClientSize = new Size(615, 322);
             Controls.Add(buttonClear);
-            Controls.Add(richTextBoxOutput);
+            Controls.Add(textBoxOutput);
             Controls.Add(buttonBTPostOrder);
             Controls.Add(buttonBTPreOrder);
             Controls.Add(buttonBTInOrder);
@@ -338,10 +326,10 @@
             Controls.Add(labelTitle);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(13, 17, 13, 17);
+            Margin = new Padding(6, 7, 6, 7);
             MaximizeBox = false;
-            MaximumSize = new Size(1334, 833);
-            MinimumSize = new Size(1334, 833);
+            MaximumSize = new Size(631, 361);
+            MinimumSize = new Size(631, 361);
             Name = "MainForm";
             Text = "Data Structures Final Assignment";
             menuStrip1.ResumeLayout(false);
@@ -374,7 +362,7 @@
         private Button buttonBTPostOrder;
         private ToolStripMenuItem importToolStripMenuItem;
         private ToolStripMenuItem cSVToolStripMenuItem;
-        private RichTextBox richTextBoxOutput;
+        private RichTextBox textBoxOutput;
         private Button buttonClear;
         private ToolTip toolTipInputTextBox;
     }
