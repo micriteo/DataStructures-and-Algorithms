@@ -30,8 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             labelTitle = new Label();
+            mergeSortCheck = new RadioButton();
             quickSortCheck = new RadioButton();
-            insertSortCheck = new RadioButton();
             jumpSearchCheck = new RadioButton();
             binarrySearchCheck = new RadioButton();
             labelInput = new Label();
@@ -67,29 +67,29 @@
             labelTitle.TabIndex = 0;
             labelTitle.Text = "Data Structures and Algorithms Final Assignment";
             // 
+            // mergeSortCheck
+            // 
+            mergeSortCheck.AutoSize = true;
+            mergeSortCheck.Enabled = false;
+            mergeSortCheck.Location = new Point(433, 86);
+            mergeSortCheck.Name = "mergeSortCheck";
+            mergeSortCheck.Size = new Size(83, 19);
+            mergeSortCheck.TabIndex = 1;
+            mergeSortCheck.TabStop = true;
+            mergeSortCheck.Text = "Merge Sort";
+            mergeSortCheck.UseVisualStyleBackColor = true;
+            // 
             // quickSortCheck
             // 
             quickSortCheck.AutoSize = true;
             quickSortCheck.Enabled = false;
-            quickSortCheck.Location = new Point(433, 86);
+            quickSortCheck.Location = new Point(433, 108);
             quickSortCheck.Name = "quickSortCheck";
             quickSortCheck.Size = new Size(80, 19);
-            quickSortCheck.TabIndex = 1;
+            quickSortCheck.TabIndex = 2;
             quickSortCheck.TabStop = true;
             quickSortCheck.Text = "Quick Sort";
             quickSortCheck.UseVisualStyleBackColor = true;
-            // 
-            // insertSortCheck
-            // 
-            insertSortCheck.AutoSize = true;
-            insertSortCheck.Enabled = false;
-            insertSortCheck.Location = new Point(433, 108);
-            insertSortCheck.Name = "insertSortCheck";
-            insertSortCheck.Size = new Size(71, 19);
-            insertSortCheck.TabIndex = 2;
-            insertSortCheck.TabStop = true;
-            insertSortCheck.Text = "Add Sort";
-            insertSortCheck.UseVisualStyleBackColor = true;
             // 
             // jumpSearchCheck
             // 
@@ -155,7 +155,7 @@
             // buttonInsert
             // 
             buttonInsert.Location = new Point(370, 67);
-            buttonInsert.Margin = new Padding(1, 1, 1, 1);
+            buttonInsert.Margin = new Padding(1);
             buttonInsert.Name = "buttonInsert";
             buttonInsert.Size = new Size(53, 18);
             buttonInsert.TabIndex = 11;
@@ -230,7 +230,7 @@
             comboBoxCollectionType.FormattingEnabled = true;
             comboBoxCollectionType.Items.AddRange(new object[] { "LinkedList", "BinaryTree", "ArrayList" });
             comboBoxCollectionType.Location = new Point(91, 89);
-            comboBoxCollectionType.Margin = new Padding(1, 1, 1, 1);
+            comboBoxCollectionType.Margin = new Padding(1);
             comboBoxCollectionType.Name = "comboBoxCollectionType";
             comboBoxCollectionType.Size = new Size(334, 23);
             comboBoxCollectionType.TabIndex = 16;
@@ -281,7 +281,7 @@
             // textBoxOutput
             // 
             textBoxOutput.Location = new Point(91, 111);
-            textBoxOutput.Margin = new Padding(1, 1, 1, 1);
+            textBoxOutput.Margin = new Padding(1);
             textBoxOutput.Name = "textBoxOutput";
             textBoxOutput.ReadOnly = true;
             textBoxOutput.Size = new Size(334, 125);
@@ -291,7 +291,7 @@
             // buttonClear
             // 
             buttonClear.Location = new Point(439, 268);
-            buttonClear.Margin = new Padding(1, 1, 1, 1);
+            buttonClear.Margin = new Padding(1);
             buttonClear.Name = "buttonClear";
             buttonClear.Size = new Size(126, 25);
             buttonClear.TabIndex = 22;
@@ -321,8 +321,8 @@
             Controls.Add(labelInput);
             Controls.Add(binarrySearchCheck);
             Controls.Add(jumpSearchCheck);
-            Controls.Add(insertSortCheck);
             Controls.Add(quickSortCheck);
+            Controls.Add(mergeSortCheck);
             Controls.Add(labelTitle);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -341,8 +341,8 @@
         #endregion
 
         private Label labelTitle;
+        private RadioButton mergeSortCheck;
         private RadioButton quickSortCheck;
-        private RadioButton insertSortCheck;
         private RadioButton jumpSearchCheck;
         private RadioButton binarrySearchCheck;
         private Label labelInput;

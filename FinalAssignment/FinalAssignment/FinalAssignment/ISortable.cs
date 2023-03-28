@@ -3,5 +3,5 @@
 public interface ISortable<T> where T : IComparable
 { 
     T[] MergeSort();
-    T[] InsertSort();
+    T[] QuickSort();
 }

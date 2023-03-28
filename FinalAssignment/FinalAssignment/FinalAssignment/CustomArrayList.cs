@@ -28,6 +28,7 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T
         T[] sortedArray = new T[this._count];
         Array.Copy(_array, sortedArray, _count);
         MergeSortHelper(sortedArray, 0, _count - 1);
+        Array.Reverse(sortedArray);
         return sortedArray;
     }
 
@@ -90,34 +91,34 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T
     }
 
 
-    public InputType[] InsertSort()
-{
-    // Make a copy of the original array
-    T[] copy = new T[_count];
-    Array.Copy(_array, 0, copy, 0, _count);
+//    public InputType[] InsertSort()
+//{
+//    // Make a copy of the original array
+//    T[] copy = new T[_count];
+//    Array.Copy(_array, 0, copy, 0, _count);
 
-    // Sort the copy using InsertSort
-    for (int i = 1; i < _count; i++)
-    {
-        T temp = copy[i];
-        int j = i - 1;
-        while (j >= 0 && copy[j].CompareTo(temp) > 0)
-        {
-            copy[j + 1] = copy[j];
-            j--;
-        }
-        copy[j + 1] = temp;
-    }
+//    // Sort the copy using InsertSort
+//    for (int i = 1; i < _count; i++)
+//    {
+//        T temp = copy[i];
+//        int j = i - 1;
+//        while (j >= 0 && copy[j].CompareTo(temp) > 0)
+//        {
+//            copy[j + 1] = copy[j];
+//            j--;
+//        }
+//        copy[j + 1] = temp;
+//    }
 
-    // Convert the sorted array to an array of InputType and return it
-    InputType[] result = new InputType[_count];
-    for (int i = 0; i < _count; i++)
-    {
-        string valueString = copy[i].ToString();
-        result[i] = new InputType(valueString);
-    }
-    return result;
-}
+//    // Convert the sorted array to an array of InputType and return it
+//    InputType[] result = new InputType[_count];
+//    for (int i = 0; i < _count; i++)
+//    {
+//        string valueString = copy[i].ToString();
+//        result[i] = new InputType(valueString);
+//    }
+//    return result;
+//}
 
 
 
@@ -149,18 +150,55 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T
         this._count++;
     }
 
+
+
+
+    public T[] QuickSort()
+    {
+        T[] sortedArray = new T[this._count];
+        Array.Copy(this._array, sortedArray, this._count);
+        QuickSortHelper(sortedArray, 0, this._count - 1);
+        Array.Reverse(sortedArray);
+        return sortedArray;
+    }
+
+    private void QuickSortHelper(T[] arr, int left, int right)
+    {
+        if (left < right)
+        {
+            int pivotIndex = Partition(arr, left, right);
+            QuickSortHelper(arr, left, pivotIndex - 1);
+            QuickSortHelper(arr, pivotIndex + 1, right);
+        }
+    }
+
+    private int Partition(T[] arr, int left, int right)
+    {
+        T pivot = arr[right];
+        int i = left - 1;
+        for (int j = left; j < right; j++)
+        {
+            if (Comparer<T>.Default.Compare(arr[j], pivot) <= 0)
+            {
+                i++;
+                Swap(arr, i, j);
+            }
+        }
+        Swap(arr, i + 1, right);
+        return i + 1;
+    }
+
+    private void Swap(T[] arr, int i, int j)
+    {
+        T temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+
     public void Clear()
     {
         throw new NotImplementedException();
     }
 
-    T[] ISortable<T>.InsertSort()
-    {
-        throw new NotImplementedException();
-    }
-
-    public T[] QuickSort()
-    {
-        throw new NotImplementedException();
-    }
 }

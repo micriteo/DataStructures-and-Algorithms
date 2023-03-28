@@ -33,12 +33,12 @@ namespace FinalAssignment
             binarrySearchCheck.Enabled = false;
             binarrySearchCheck.Checked = false;
             // Disabling algorithms 
-            insertSortCheck.Enabled = false;
             quickSortCheck.Enabled = false;
+            mergeSortCheck.Enabled = false;
             jumpSearchCheck.Enabled = false;
             // Removing any checked items 
-            insertSortCheck.Checked = false;
             quickSortCheck.Checked = false;
+            mergeSortCheck.Checked = false;
             jumpSearchCheck.Checked = false;
             // Display buttons for the collection
             buttonBTInOrder.Visible = false;
@@ -57,16 +57,16 @@ namespace FinalAssignment
             }
             else if (comboBoxCollectionType.SelectedItem.ToString().Equals("LinkedList"))
             {
-                insertSortCheck.Enabled = true;
                 quickSortCheck.Enabled = true;
+                mergeSortCheck.Enabled = true;
                 // jumpSearchCheck.Enabled = true;
                 buttonGenerate.Enabled = true;
             }
             else if (comboBoxCollectionType.SelectedItem.ToString().Equals("ArrayList"))
             {
                 jumpSearchCheck.Enabled = true;
-                insertSortCheck.Enabled = true;
                 quickSortCheck.Enabled = true;
+                mergeSortCheck.Enabled = true;
                 buttonGenerate.Enabled = true;
             }
         }
@@ -88,15 +88,15 @@ namespace FinalAssignment
 
         private void buttonGenerate_Click_1(object sender, EventArgs e)
         {
-            if (quickSortCheck.Checked)
+            if (mergeSortCheck.Checked)
             {
                 InputType[] sortedArray = this._arrayList.MergeSort();
                 string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
                 textBoxOutput.Text = outputString;
             }
-            else if (insertSortCheck.Checked)
+            else if (quickSortCheck.Checked)
             {
-                InputType[] sortedArray = this._arrayList.InsertSort();
+                InputType[] sortedArray = this._arrayList.QuickSort();
                 string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
                 textBoxOutput.Text = outputString;
             }
