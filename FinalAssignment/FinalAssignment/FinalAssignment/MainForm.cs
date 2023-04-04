@@ -247,5 +247,14 @@ namespace FinalAssignment
                 MessageBoxIcon.Information
                 );
         }
+
+        private void buttonClear_Click_1(object sender, EventArgs e)
+        {
+            if(comboBoxCollectionType.SelectedItem.ToString().Equals("ArrayList"))
+            {
+                this._arrayList.Clear();
+                textBoxOutput.Text = "";
+            }
+        }
     }
 }

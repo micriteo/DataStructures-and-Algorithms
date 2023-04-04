@@ -28,314 +28,313 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            labelTitle = new Label();
-            mergeSortCheck = new RadioButton();
-            quickSortCheck = new RadioButton();
-            jumpSearchCheck = new RadioButton();
-            binarrySearchCheck = new RadioButton();
-            labelInput = new Label();
-            labelOutput = new Label();
-            textBoxInputText = new TextBox();
-            buttonGenerate = new Button();
-            buttonInsert = new Button();
-            labelExecutionTime = new Label();
-            labelSelectSortAlgr = new Label();
-            labelSelectSearchAlgr = new Label();
-            menuStrip1 = new MenuStrip();
-            infoToolStripMenuItem = new ToolStripMenuItem();
-            importToolStripMenuItem = new ToolStripMenuItem();
-            cSVToolStripMenuItem = new ToolStripMenuItem();
-            comboBoxCollectionType = new ComboBox();
-            label1 = new Label();
-            buttonBTInOrder = new Button();
-            buttonBTPreOrder = new Button();
-            buttonBTPostOrder = new Button();
-            textBoxOutput = new RichTextBox();
-            buttonClear = new Button();
-            toolTipInputTextBox = new ToolTip(components);
-            menuStrip1.SuspendLayout();
-            SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.mergeSortCheck = new System.Windows.Forms.RadioButton();
+            this.quickSortCheck = new System.Windows.Forms.RadioButton();
+            this.jumpSearchCheck = new System.Windows.Forms.RadioButton();
+            this.binarrySearchCheck = new System.Windows.Forms.RadioButton();
+            this.labelInput = new System.Windows.Forms.Label();
+            this.labelOutput = new System.Windows.Forms.Label();
+            this.textBoxInputText = new System.Windows.Forms.TextBox();
+            this.buttonGenerate = new System.Windows.Forms.Button();
+            this.buttonInsert = new System.Windows.Forms.Button();
+            this.labelExecutionTime = new System.Windows.Forms.Label();
+            this.labelSelectSortAlgr = new System.Windows.Forms.Label();
+            this.labelSelectSearchAlgr = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBoxCollectionType = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonBTInOrder = new System.Windows.Forms.Button();
+            this.buttonBTPreOrder = new System.Windows.Forms.Button();
+            this.buttonBTPostOrder = new System.Windows.Forms.Button();
+            this.textBoxOutput = new System.Windows.Forms.RichTextBox();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.toolTipInputTextBox = new System.Windows.Forms.ToolTip(this.components);
+            this.menuStrip1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // labelTitle
             // 
-            labelTitle.AutoSize = true;
-            labelTitle.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labelTitle.Location = new Point(40, 24);
-            labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(497, 30);
-            labelTitle.TabIndex = 0;
-            labelTitle.Text = "Data Structures and Algorithms Final Assignment";
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTitle.Location = new System.Drawing.Point(40, 24);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(497, 30);
+            this.labelTitle.TabIndex = 0;
+            this.labelTitle.Text = "Data Structures and Algorithms Final Assignment";
             // 
             // mergeSortCheck
             // 
-            mergeSortCheck.AutoSize = true;
-            mergeSortCheck.Enabled = false;
-            mergeSortCheck.Location = new Point(433, 86);
-            mergeSortCheck.Name = "mergeSortCheck";
-            mergeSortCheck.Size = new Size(83, 19);
-            mergeSortCheck.TabIndex = 1;
-            mergeSortCheck.TabStop = true;
-            mergeSortCheck.Text = "Merge Sort";
-            mergeSortCheck.UseVisualStyleBackColor = true;
+            this.mergeSortCheck.AutoSize = true;
+            this.mergeSortCheck.Enabled = false;
+            this.mergeSortCheck.Location = new System.Drawing.Point(433, 86);
+            this.mergeSortCheck.Name = "mergeSortCheck";
+            this.mergeSortCheck.Size = new System.Drawing.Size(83, 19);
+            this.mergeSortCheck.TabIndex = 1;
+            this.mergeSortCheck.TabStop = true;
+            this.mergeSortCheck.Text = "Merge Sort";
+            this.mergeSortCheck.UseVisualStyleBackColor = true;
             // 
             // quickSortCheck
             // 
-            quickSortCheck.AutoSize = true;
-            quickSortCheck.Enabled = false;
-            quickSortCheck.Location = new Point(433, 108);
-            quickSortCheck.Name = "quickSortCheck";
-            quickSortCheck.Size = new Size(80, 19);
-            quickSortCheck.TabIndex = 2;
-            quickSortCheck.TabStop = true;
-            quickSortCheck.Text = "Quick Sort";
-            quickSortCheck.UseVisualStyleBackColor = true;
+            this.quickSortCheck.AutoSize = true;
+            this.quickSortCheck.Enabled = false;
+            this.quickSortCheck.Location = new System.Drawing.Point(433, 108);
+            this.quickSortCheck.Name = "quickSortCheck";
+            this.quickSortCheck.Size = new System.Drawing.Size(80, 19);
+            this.quickSortCheck.TabIndex = 2;
+            this.quickSortCheck.TabStop = true;
+            this.quickSortCheck.Text = "Quick Sort";
+            this.quickSortCheck.UseVisualStyleBackColor = true;
             // 
             // jumpSearchCheck
             // 
-            jumpSearchCheck.AutoSize = true;
-            jumpSearchCheck.Enabled = false;
-            jumpSearchCheck.Location = new Point(433, 155);
-            jumpSearchCheck.Name = "jumpSearchCheck";
-            jumpSearchCheck.Size = new Size(93, 19);
-            jumpSearchCheck.TabIndex = 3;
-            jumpSearchCheck.TabStop = true;
-            jumpSearchCheck.Text = "Jump-search";
-            jumpSearchCheck.UseVisualStyleBackColor = true;
+            this.jumpSearchCheck.AutoSize = true;
+            this.jumpSearchCheck.Enabled = false;
+            this.jumpSearchCheck.Location = new System.Drawing.Point(433, 155);
+            this.jumpSearchCheck.Name = "jumpSearchCheck";
+            this.jumpSearchCheck.Size = new System.Drawing.Size(93, 19);
+            this.jumpSearchCheck.TabIndex = 3;
+            this.jumpSearchCheck.TabStop = true;
+            this.jumpSearchCheck.Text = "Jump-search";
+            this.jumpSearchCheck.UseVisualStyleBackColor = true;
             // 
             // binarrySearchCheck
             // 
-            binarrySearchCheck.AutoSize = true;
-            binarrySearchCheck.Enabled = false;
-            binarrySearchCheck.Location = new Point(433, 178);
-            binarrySearchCheck.Name = "binarrySearchCheck";
-            binarrySearchCheck.Size = new Size(120, 19);
-            binarrySearchCheck.TabIndex = 4;
-            binarrySearchCheck.TabStop = true;
-            binarrySearchCheck.Text = "Binary Search Tree";
-            binarrySearchCheck.UseVisualStyleBackColor = true;
+            this.binarrySearchCheck.AutoSize = true;
+            this.binarrySearchCheck.Enabled = false;
+            this.binarrySearchCheck.Location = new System.Drawing.Point(433, 178);
+            this.binarrySearchCheck.Name = "binarrySearchCheck";
+            this.binarrySearchCheck.Size = new System.Drawing.Size(120, 19);
+            this.binarrySearchCheck.TabIndex = 4;
+            this.binarrySearchCheck.TabStop = true;
+            this.binarrySearchCheck.Text = "Binary Search Tree";
+            this.binarrySearchCheck.UseVisualStyleBackColor = true;
             // 
             // labelInput
             // 
-            labelInput.AutoSize = true;
-            labelInput.Location = new Point(23, 68);
-            labelInput.Name = "labelInput";
-            labelInput.Size = new Size(35, 15);
-            labelInput.TabIndex = 5;
-            labelInput.Text = "Input";
+            this.labelInput.AutoSize = true;
+            this.labelInput.Location = new System.Drawing.Point(23, 68);
+            this.labelInput.Name = "labelInput";
+            this.labelInput.Size = new System.Drawing.Size(35, 15);
+            this.labelInput.TabIndex = 5;
+            this.labelInput.Text = "Input";
             // 
             // labelOutput
             // 
-            labelOutput.AutoSize = true;
-            labelOutput.Location = new Point(22, 111);
-            labelOutput.Name = "labelOutput";
-            labelOutput.Size = new Size(45, 15);
-            labelOutput.TabIndex = 6;
-            labelOutput.Text = "Output";
+            this.labelOutput.AutoSize = true;
+            this.labelOutput.Location = new System.Drawing.Point(22, 111);
+            this.labelOutput.Name = "labelOutput";
+            this.labelOutput.Size = new System.Drawing.Size(45, 15);
+            this.labelOutput.TabIndex = 6;
+            this.labelOutput.Text = "Output";
             // 
             // textBoxInputText
             // 
-            textBoxInputText.Location = new Point(91, 67);
-            textBoxInputText.Name = "textBoxInputText";
-            textBoxInputText.Size = new Size(277, 23);
-            textBoxInputText.TabIndex = 7;
+            this.textBoxInputText.Location = new System.Drawing.Point(91, 67);
+            this.textBoxInputText.Name = "textBoxInputText";
+            this.textBoxInputText.Size = new System.Drawing.Size(277, 23);
+            this.textBoxInputText.TabIndex = 7;
             // 
             // buttonGenerate
             // 
-            buttonGenerate.ImageAlign = ContentAlignment.BottomRight;
-            buttonGenerate.Location = new Point(439, 226);
-            buttonGenerate.Name = "buttonGenerate";
-            buttonGenerate.RightToLeft = RightToLeft.No;
-            buttonGenerate.Size = new Size(114, 34);
-            buttonGenerate.TabIndex = 10;
-            buttonGenerate.Text = "Generate ";
-            buttonGenerate.UseVisualStyleBackColor = true;
-            buttonGenerate.Click += buttonGenerate_Click_1;
+            this.buttonGenerate.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.buttonGenerate.Location = new System.Drawing.Point(439, 226);
+            this.buttonGenerate.Name = "buttonGenerate";
+            this.buttonGenerate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonGenerate.Size = new System.Drawing.Size(114, 34);
+            this.buttonGenerate.TabIndex = 10;
+            this.buttonGenerate.Text = "Generate ";
+            this.buttonGenerate.UseVisualStyleBackColor = true;
             // 
             // buttonInsert
             // 
-            buttonInsert.Location = new Point(370, 67);
-            buttonInsert.Margin = new Padding(1);
-            buttonInsert.Name = "buttonInsert";
-            buttonInsert.Size = new Size(53, 18);
-            buttonInsert.TabIndex = 11;
-            buttonInsert.Text = "Add";
-            buttonInsert.UseVisualStyleBackColor = true;
-            buttonInsert.Click += buttonAdd_Click;
+            this.buttonInsert.Location = new System.Drawing.Point(370, 67);
+            this.buttonInsert.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonInsert.Name = "buttonInsert";
+            this.buttonInsert.Size = new System.Drawing.Size(53, 18);
+            this.buttonInsert.TabIndex = 11;
+            this.buttonInsert.Text = "Add";
+            this.buttonInsert.UseVisualStyleBackColor = true;
             // 
             // labelExecutionTime
             // 
-            labelExecutionTime.AutoSize = true;
-            labelExecutionTime.Location = new Point(91, 273);
-            labelExecutionTime.Margin = new Padding(1, 0, 1, 0);
-            labelExecutionTime.Name = "labelExecutionTime";
-            labelExecutionTime.Size = new Size(91, 15);
-            labelExecutionTime.TabIndex = 12;
-            labelExecutionTime.Text = "Execution Time:";
+            this.labelExecutionTime.AutoSize = true;
+            this.labelExecutionTime.Location = new System.Drawing.Point(91, 273);
+            this.labelExecutionTime.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.labelExecutionTime.Name = "labelExecutionTime";
+            this.labelExecutionTime.Size = new System.Drawing.Size(91, 15);
+            this.labelExecutionTime.TabIndex = 12;
+            this.labelExecutionTime.Text = "Execution Time:";
             // 
             // labelSelectSortAlgr
             // 
-            labelSelectSortAlgr.AutoSize = true;
-            labelSelectSortAlgr.Location = new Point(433, 64);
-            labelSelectSortAlgr.Margin = new Padding(1, 0, 1, 0);
-            labelSelectSortAlgr.Name = "labelSelectSortAlgr";
-            labelSelectSortAlgr.Size = new Size(128, 15);
-            labelSelectSortAlgr.TabIndex = 13;
-            labelSelectSortAlgr.Text = "Select a sort algorthim:";
+            this.labelSelectSortAlgr.AutoSize = true;
+            this.labelSelectSortAlgr.Location = new System.Drawing.Point(433, 64);
+            this.labelSelectSortAlgr.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.labelSelectSortAlgr.Name = "labelSelectSortAlgr";
+            this.labelSelectSortAlgr.Size = new System.Drawing.Size(128, 15);
+            this.labelSelectSortAlgr.TabIndex = 13;
+            this.labelSelectSortAlgr.Text = "Select a sort algorthim:";
             // 
             // labelSelectSearchAlgr
             // 
-            labelSelectSearchAlgr.AutoSize = true;
-            labelSelectSearchAlgr.Location = new Point(433, 138);
-            labelSelectSearchAlgr.Margin = new Padding(1, 0, 1, 0);
-            labelSelectSearchAlgr.Name = "labelSelectSearchAlgr";
-            labelSelectSearchAlgr.Size = new Size(142, 15);
-            labelSelectSearchAlgr.TabIndex = 14;
-            labelSelectSearchAlgr.Text = "Select a search algorthim:";
+            this.labelSelectSearchAlgr.AutoSize = true;
+            this.labelSelectSearchAlgr.Location = new System.Drawing.Point(433, 138);
+            this.labelSelectSearchAlgr.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.labelSelectSearchAlgr.Name = "labelSelectSearchAlgr";
+            this.labelSelectSearchAlgr.Size = new System.Drawing.Size(142, 15);
+            this.labelSelectSearchAlgr.TabIndex = 14;
+            this.labelSelectSearchAlgr.Text = "Select a search algorthim:";
             // 
             // menuStrip1
             // 
-            menuStrip1.ImageScalingSize = new Size(36, 36);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { infoToolStripMenuItem, importToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(1, 0, 0, 0);
-            menuStrip1.Size = new Size(615, 24);
-            menuStrip1.TabIndex = 15;
-            menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(36, 36);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.infoToolStripMenuItem,
+            this.importToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.menuStrip1.Size = new System.Drawing.Size(615, 24);
+            this.menuStrip1.TabIndex = 15;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // infoToolStripMenuItem
             // 
-            infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            infoToolStripMenuItem.Size = new Size(40, 24);
-            infoToolStripMenuItem.Text = "Info";
-            infoToolStripMenuItem.Click += infoToolStripMenuItem_Click;
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(40, 24);
+            this.infoToolStripMenuItem.Text = "Info";
             // 
             // importToolStripMenuItem
             // 
-            importToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cSVToolStripMenuItem });
-            importToolStripMenuItem.Name = "importToolStripMenuItem";
-            importToolStripMenuItem.Size = new Size(55, 24);
-            importToolStripMenuItem.Text = "Import";
+            this.importToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cSVToolStripMenuItem});
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.importToolStripMenuItem.Text = "Import";
             // 
             // cSVToolStripMenuItem
             // 
-            cSVToolStripMenuItem.Name = "cSVToolStripMenuItem";
-            cSVToolStripMenuItem.Size = new Size(95, 22);
-            cSVToolStripMenuItem.Text = "CSV";
-            cSVToolStripMenuItem.Click += cSVToolStripMenuItem_Click;
+            this.cSVToolStripMenuItem.Name = "cSVToolStripMenuItem";
+            this.cSVToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
+            this.cSVToolStripMenuItem.Text = "CSV";
             // 
             // comboBoxCollectionType
             // 
-            comboBoxCollectionType.FormattingEnabled = true;
-            comboBoxCollectionType.Items.AddRange(new object[] { "LinkedList", "BinaryTree", "ArrayList" });
-            comboBoxCollectionType.Location = new Point(91, 89);
-            comboBoxCollectionType.Margin = new Padding(1);
-            comboBoxCollectionType.Name = "comboBoxCollectionType";
-            comboBoxCollectionType.Size = new Size(334, 23);
-            comboBoxCollectionType.TabIndex = 16;
-            comboBoxCollectionType.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            this.comboBoxCollectionType.FormattingEnabled = true;
+            this.comboBoxCollectionType.Items.AddRange(new object[] {
+            "LinkedList",
+            "BinaryTree",
+            "ArrayList"});
+            this.comboBoxCollectionType.Location = new System.Drawing.Point(91, 89);
+            this.comboBoxCollectionType.Margin = new System.Windows.Forms.Padding(1);
+            this.comboBoxCollectionType.Name = "comboBoxCollectionType";
+            this.comboBoxCollectionType.Size = new System.Drawing.Size(334, 23);
+            this.comboBoxCollectionType.TabIndex = 16;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(23, 91);
-            label1.Name = "label1";
-            label1.Size = new Size(61, 15);
-            label1.TabIndex = 17;
-            label1.Text = "Collection";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(23, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 15);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Collection";
             // 
             // buttonBTInOrder
             // 
-            buttonBTInOrder.Location = new Point(91, 238);
-            buttonBTInOrder.Name = "buttonBTInOrder";
-            buttonBTInOrder.Size = new Size(110, 23);
-            buttonBTInOrder.TabIndex = 18;
-            buttonBTInOrder.Text = "In Order";
-            buttonBTInOrder.UseVisualStyleBackColor = true;
-            buttonBTInOrder.Visible = false;
-            buttonBTInOrder.Click += buttonBTInOrder_Click;
+            this.buttonBTInOrder.Location = new System.Drawing.Point(91, 238);
+            this.buttonBTInOrder.Name = "buttonBTInOrder";
+            this.buttonBTInOrder.Size = new System.Drawing.Size(110, 23);
+            this.buttonBTInOrder.TabIndex = 18;
+            this.buttonBTInOrder.Text = "In Order";
+            this.buttonBTInOrder.UseVisualStyleBackColor = true;
+            this.buttonBTInOrder.Visible = false;
             // 
             // buttonBTPreOrder
             // 
-            buttonBTPreOrder.Location = new Point(207, 238);
-            buttonBTPreOrder.Name = "buttonBTPreOrder";
-            buttonBTPreOrder.Size = new Size(108, 22);
-            buttonBTPreOrder.TabIndex = 19;
-            buttonBTPreOrder.Text = "Pre Order";
-            buttonBTPreOrder.UseVisualStyleBackColor = true;
-            buttonBTPreOrder.Visible = false;
-            buttonBTPreOrder.Click += buttonBTPreOrder_Click;
+            this.buttonBTPreOrder.Location = new System.Drawing.Point(207, 238);
+            this.buttonBTPreOrder.Name = "buttonBTPreOrder";
+            this.buttonBTPreOrder.Size = new System.Drawing.Size(108, 22);
+            this.buttonBTPreOrder.TabIndex = 19;
+            this.buttonBTPreOrder.Text = "Pre Order";
+            this.buttonBTPreOrder.UseVisualStyleBackColor = true;
+            this.buttonBTPreOrder.Visible = false;
             // 
             // buttonBTPostOrder
             // 
-            buttonBTPostOrder.Location = new Point(320, 238);
-            buttonBTPostOrder.Name = "buttonBTPostOrder";
-            buttonBTPostOrder.Size = new Size(103, 22);
-            buttonBTPostOrder.TabIndex = 20;
-            buttonBTPostOrder.Text = "Post Order";
-            buttonBTPostOrder.UseVisualStyleBackColor = true;
-            buttonBTPostOrder.Visible = false;
-            buttonBTPostOrder.Click += buttonBTPostOrder_Click;
+            this.buttonBTPostOrder.Location = new System.Drawing.Point(320, 238);
+            this.buttonBTPostOrder.Name = "buttonBTPostOrder";
+            this.buttonBTPostOrder.Size = new System.Drawing.Size(103, 22);
+            this.buttonBTPostOrder.TabIndex = 20;
+            this.buttonBTPostOrder.Text = "Post Order";
+            this.buttonBTPostOrder.UseVisualStyleBackColor = true;
+            this.buttonBTPostOrder.Visible = false;
             // 
             // textBoxOutput
             // 
-            textBoxOutput.Location = new Point(91, 111);
-            textBoxOutput.Margin = new Padding(1);
-            textBoxOutput.Name = "textBoxOutput";
-            textBoxOutput.ReadOnly = true;
-            textBoxOutput.Size = new Size(334, 125);
-            textBoxOutput.TabIndex = 21;
-            textBoxOutput.Text = "";
+            this.textBoxOutput.Location = new System.Drawing.Point(91, 111);
+            this.textBoxOutput.Margin = new System.Windows.Forms.Padding(1);
+            this.textBoxOutput.Name = "textBoxOutput";
+            this.textBoxOutput.ReadOnly = true;
+            this.textBoxOutput.Size = new System.Drawing.Size(334, 125);
+            this.textBoxOutput.TabIndex = 21;
+            this.textBoxOutput.Text = "";
             // 
             // buttonClear
             // 
-            buttonClear.Location = new Point(439, 268);
-            buttonClear.Margin = new Padding(1);
-            buttonClear.Name = "buttonClear";
-            buttonClear.Size = new Size(126, 25);
-            buttonClear.TabIndex = 22;
-            buttonClear.Text = "Clear";
-            buttonClear.UseVisualStyleBackColor = true;
-            buttonClear.Click += buttonClear_Click;
+            this.buttonClear.Location = new System.Drawing.Point(439, 268);
+            this.buttonClear.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(126, 25);
+            this.buttonClear.TabIndex = 22;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click_1);
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(615, 322);
-            Controls.Add(buttonClear);
-            Controls.Add(textBoxOutput);
-            Controls.Add(buttonBTPostOrder);
-            Controls.Add(buttonBTPreOrder);
-            Controls.Add(buttonBTInOrder);
-            Controls.Add(label1);
-            Controls.Add(comboBoxCollectionType);
-            Controls.Add(labelSelectSearchAlgr);
-            Controls.Add(labelSelectSortAlgr);
-            Controls.Add(labelExecutionTime);
-            Controls.Add(buttonInsert);
-            Controls.Add(buttonGenerate);
-            Controls.Add(textBoxInputText);
-            Controls.Add(labelOutput);
-            Controls.Add(labelInput);
-            Controls.Add(binarrySearchCheck);
-            Controls.Add(jumpSearchCheck);
-            Controls.Add(quickSortCheck);
-            Controls.Add(mergeSortCheck);
-            Controls.Add(labelTitle);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
-            Margin = new Padding(6, 7, 6, 7);
-            MaximizeBox = false;
-            MaximumSize = new Size(631, 361);
-            MinimumSize = new Size(631, 361);
-            Name = "MainForm";
-            Text = "Data Structures Final Assignment";
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(615, 322);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.textBoxOutput);
+            this.Controls.Add(this.buttonBTPostOrder);
+            this.Controls.Add(this.buttonBTPreOrder);
+            this.Controls.Add(this.buttonBTInOrder);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBoxCollectionType);
+            this.Controls.Add(this.labelSelectSearchAlgr);
+            this.Controls.Add(this.labelSelectSortAlgr);
+            this.Controls.Add(this.labelExecutionTime);
+            this.Controls.Add(this.buttonInsert);
+            this.Controls.Add(this.buttonGenerate);
+            this.Controls.Add(this.textBoxInputText);
+            this.Controls.Add(this.labelOutput);
+            this.Controls.Add(this.labelInput);
+            this.Controls.Add(this.binarrySearchCheck);
+            this.Controls.Add(this.jumpSearchCheck);
+            this.Controls.Add(this.quickSortCheck);
+            this.Controls.Add(this.mergeSortCheck);
+            this.Controls.Add(this.labelTitle);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(631, 361);
+            this.MinimumSize = new System.Drawing.Size(631, 361);
+            this.Name = "MainForm";
+            this.Text = "Data Structures Final Assignment";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

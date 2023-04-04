@@ -195,10 +195,14 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T
         arr[j] = temp;
     }
 
-
     public void Clear()
     {
-        throw new NotImplementedException();
+        // Set _count to 0 to empty the array
+        _count = 0;
+
+        // Create a new array with the original size and set it to _array
+        _array = new T[_increment];
     }
+
 
 }
