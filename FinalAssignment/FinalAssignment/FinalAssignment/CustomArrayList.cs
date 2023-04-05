@@ -28,8 +28,16 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T
         T[] sortedArray = new T[this._count];
         Array.Copy(_array, sortedArray, _count);
         MergeSortHelper(sortedArray, 0, _count - 1);
-        Array.Reverse(sortedArray);
-        return sortedArray;
+        if (typeof(T) != typeof(string))
+        {
+            Array.Sort(sortedArray);
+            return sortedArray;
+        }
+        else
+        {
+            Array.Reverse(sortedArray);
+            return sortedArray;
+        }
     }
 
     private void MergeSortHelper(T[] tempArray, int left, int right)

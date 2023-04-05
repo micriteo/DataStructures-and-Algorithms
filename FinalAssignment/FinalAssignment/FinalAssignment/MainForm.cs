@@ -27,7 +27,7 @@ namespace FinalAssignment
             toolTipInputTextBox.SetToolTip(textBoxInputText, "Enter values to be added, separated by a space!");
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxCollectionType_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Defining default status of buttons
             binarrySearchCheck.Enabled = false;
@@ -71,7 +71,8 @@ namespace FinalAssignment
             }
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+
+    private void buttonAdd_Click_1(object sender, EventArgs e)
         {
             string input = textBoxInputText.Text;
 
@@ -85,23 +86,7 @@ namespace FinalAssignment
 
             textBoxInputText.Text = "";
         }
-
-        private void buttonGenerate_Click_1(object sender, EventArgs e)
-        {
-            if (mergeSortCheck.Checked)
-            {
-                InputType[] sortedArray = this._arrayList.MergeSort();
-                string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
-                textBoxOutput.Text = outputString;
-            }
-            else if (quickSortCheck.Checked)
-            {
-                InputType[] sortedArray = this._arrayList.QuickSort();
-                string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
-                textBoxOutput.Text = outputString;
-            }
-
-        }
+        
         private void buttonBTInOrder_Click(object sender, EventArgs e)
         {
             StringBuilder output = new("In Order Traversal: \n\n");
@@ -138,11 +123,20 @@ namespace FinalAssignment
             this.UpdateExecutionTimeLabel(executionTime.ElapsedMilliseconds);
         }
 
-        private void buttonGenerate_Click(object sender, EventArgs e)
+        private void buttonGenerate_Click_2(object sender, EventArgs e)
         {
-            InputType[] sortedArray = this._arrayList.QuickSort();
-            string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
-            textBoxOutput.Text = outputString;
+            if (mergeSortCheck.Checked)
+            {
+                InputType[] sortedArray = this._arrayList.MergeSort();
+                string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
+                textBoxOutput.Text = outputString;
+            }
+            else if (quickSortCheck.Checked)
+            {
+                InputType[] sortedArray = this._arrayList.QuickSort();
+                string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
+                textBoxOutput.Text = outputString;
+            };
         }
 
         private void UpdateExecutionTimeLabel(double executionTime)

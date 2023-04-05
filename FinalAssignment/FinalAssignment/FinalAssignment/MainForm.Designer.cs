@@ -38,7 +38,7 @@
             this.labelOutput = new System.Windows.Forms.Label();
             this.textBoxInputText = new System.Windows.Forms.TextBox();
             this.buttonGenerate = new System.Windows.Forms.Button();
-            this.buttonInsert = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.labelExecutionTime = new System.Windows.Forms.Label();
             this.labelSelectSortAlgr = new System.Windows.Forms.Label();
             this.labelSelectSearchAlgr = new System.Windows.Forms.Label();
@@ -150,16 +150,18 @@
             this.buttonGenerate.TabIndex = 10;
             this.buttonGenerate.Text = "Generate ";
             this.buttonGenerate.UseVisualStyleBackColor = true;
+            this.buttonGenerate.Click += new System.EventHandler(this.buttonGenerate_Click_2);
             // 
-            // buttonInsert
+            // buttonAdd
             // 
-            this.buttonInsert.Location = new System.Drawing.Point(370, 67);
-            this.buttonInsert.Margin = new System.Windows.Forms.Padding(1);
-            this.buttonInsert.Name = "buttonInsert";
-            this.buttonInsert.Size = new System.Drawing.Size(53, 18);
-            this.buttonInsert.TabIndex = 11;
-            this.buttonInsert.Text = "Add";
-            this.buttonInsert.UseVisualStyleBackColor = true;
+            this.buttonAdd.Location = new System.Drawing.Point(370, 67);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(53, 18);
+            this.buttonAdd.TabIndex = 11;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click_1);
             // 
             // labelExecutionTime
             // 
@@ -236,6 +238,7 @@
             this.comboBoxCollectionType.Name = "comboBoxCollectionType";
             this.comboBoxCollectionType.Size = new System.Drawing.Size(334, 23);
             this.comboBoxCollectionType.TabIndex = 16;
+            this.comboBoxCollectionType.SelectedIndexChanged += new System.EventHandler(this.comboBoxCollectionType_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -312,7 +315,7 @@
             this.Controls.Add(this.labelSelectSearchAlgr);
             this.Controls.Add(this.labelSelectSortAlgr);
             this.Controls.Add(this.labelExecutionTime);
-            this.Controls.Add(this.buttonInsert);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonGenerate);
             this.Controls.Add(this.textBoxInputText);
             this.Controls.Add(this.labelOutput);
@@ -348,7 +351,7 @@
         private Label labelOutput;
         private TextBox textBoxInputText;
         private Button buttonGenerate;
-        private Button buttonInsert;
+        private Button buttonAdd;
         private Label labelExecutionTime;
         private Label labelSelectSortAlgr;
         private Label labelSelectSearchAlgr;
