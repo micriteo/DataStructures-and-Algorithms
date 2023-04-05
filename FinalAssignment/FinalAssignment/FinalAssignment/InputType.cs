@@ -45,6 +45,11 @@ public class InputType : IComparable
         this.Value = value;
     }
 
+    public bool IsString()
+    {
+        return Value is string;
+    }
+
     public int CompareTo(object? obj)
     {
         if (obj is null)

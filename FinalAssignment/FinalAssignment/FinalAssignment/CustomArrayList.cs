@@ -2,12 +2,13 @@
 
 namespace FinalAssignment;
 
-public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T> where T : IComparable
+public class CustomArrayList<T> : ISortable<T>, ISearchable<T>, ICustomCollection<T> where T : IComparable
 {
     private T[] _array;
     private int _count;
     private readonly int _increment = 5;
 
+    // Define a public property to return the count of elements in the array
     public int Count
     {
         get
@@ -16,6 +17,7 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T
         }
     }
 
+    // Define a constructor that initializes the array with a default size of _increment
     public CustomArrayList()
     {
         this._array = new T[this._increment];
@@ -25,30 +27,51 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T
 
     public T[] MergeSort()
     {
+        // Create a new array to hold the sorted elements and copy the original array to it
         T[] sortedArray = new T[this._count];
         Array.Copy(_array, sortedArray, _count);
+
+        // Call the recursive helper function to perform the sort
         MergeSortHelper(sortedArray, 0, _count - 1);
-        if (typeof(T) != typeof(string))
+
+
+        // If the element type is InputType, check if it is a string and sort or reverse the array accordingly
+        if (typeof(T) == typeof(InputType))
         {
-            Array.Sort(sortedArray);
-            return sortedArray;
+            if (typeof(InputType).IsAssignableFrom(typeof(T)))
+            {
+                if (sortedArray.All(x => ((InputType)(object)x).IsString()))
+                {
+                    Array.Sort(sortedArray);
+                }
+                else
+                {
+                    Array.Reverse(sortedArray);
+                }
+            }
         }
-        else
+        // If the element type is int, reverse the array
+        else if (typeof(T) == typeof(int))
         {
             Array.Reverse(sortedArray);
-            return sortedArray;
         }
+
+        // Return the sorted array
+        return sortedArray;
     }
 
     private void MergeSortHelper(T[] tempArray, int left, int right)
     {
+        // If the left and right indices are the same or crossed, the array is sorted
         if (left >= right) return;
         {
+            // Find the middle index and recursively sort the left and right halves
             int middle = (left + right) / 2;
 
             MergeSortHelper(tempArray, left, middle);
             MergeSortHelper(tempArray, middle + 1, right);
 
+            // Merge the sorted halves
             Merge(tempArray, left, middle, right);
         }
     }
@@ -99,37 +122,6 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T
     }
 
 
-//    public InputType[] InsertSort()
-//{
-//    // Make a copy of the original array
-//    T[] copy = new T[_count];
-//    Array.Copy(_array, 0, copy, 0, _count);
-
-//    // Sort the copy using InsertSort
-//    for (int i = 1; i < _count; i++)
-//    {
-//        T temp = copy[i];
-//        int j = i - 1;
-//        while (j >= 0 && copy[j].CompareTo(temp) > 0)
-//        {
-//            copy[j + 1] = copy[j];
-//            j--;
-//        }
-//        copy[j + 1] = temp;
-//    }
-
-//    // Convert the sorted array to an array of InputType and return it
-//    InputType[] result = new InputType[_count];
-//    for (int i = 0; i < _count; i++)
-//    {
-//        string valueString = copy[i].ToString();
-//        result[i] = new InputType(valueString);
-//    }
-//    return result;
-//}
-
-
-
     public void Add(T item)
     {
         if (item == null) throw new ArgumentNullException();
@@ -160,15 +152,37 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T
 
 
 
-
     public T[] QuickSort()
     {
         T[] sortedArray = new T[this._count];
         Array.Copy(this._array, sortedArray, this._count);
+        
         QuickSortHelper(sortedArray, 0, this._count - 1);
-        Array.Reverse(sortedArray);
+        // If the element type is InputType, check if it is a string and sort or reverse the array accordingly
+        if (typeof(T) == typeof(InputType))
+        {
+            if (typeof(InputType).IsAssignableFrom(typeof(T)))
+            {
+                if (sortedArray.All(x => ((InputType)(object)x).IsString()))
+                {
+                    Array.Sort(sortedArray);
+                }
+                else
+                {
+                    Array.Reverse(sortedArray);
+                }
+            }
+        }
+        // If the element type is int, reverse the array
+        else if (typeof(T) == typeof(int))
+        {
+            Array.Reverse(sortedArray);
+        }
+
+        // Return the sorted array
         return sortedArray;
     }
+    
 
     private void QuickSortHelper(T[] arr, int left, int right)
     {
@@ -212,5 +226,70 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable, ICustomCollection<T
         _array = new T[_increment];
     }
 
+    public int JumpSearch(InputType target)
+    {
+        // Check if the array is empty
+        if (this._count == 0)
+        {
+            return -1;
+        }
 
+        // Check if the array is sorted in ascending order
+        bool isSorted = false;
+        for (int i = 1; i < this._count; i++)
+        {
+            if (this._array[i].CompareTo(this._array[i - 1]) < 0)
+            {
+                isSorted = false;
+                break;
+            }
+            else
+            {
+                isSorted = true;
+            }
+        }
+
+        if (!isSorted)
+        {
+            throw new InvalidOperationException("JumpSearch can only be performed on a sorted array.");
+        }
+
+        // Set the jump size to the square root of the array length
+        int jumpSize = (int)Math.Floor(Math.Sqrt(this._count));
+
+        // Loop through the array using the jump size as the step
+        for (int i = 0; i < this._count; i += jumpSize)
+        {
+            // Check if the current element is greater than the target
+            if (this._array[i].CompareTo(target) > 0)
+            {
+                // Linear search backward through the previous block
+                for (int j = i - jumpSize + 1; j < i; j++)
+                {
+                    if (this._array[j].CompareTo(target) == 0)
+                    {
+                        return j;
+                    }
+                }
+                return -1;
+            }
+            // Check if the current element is the target
+            else if (this._array[i].CompareTo(target) == 0)
+            {
+                return i;
+            }
+        }
+
+        // Linear search backward through the last block
+        for (int i = this._count - 1; i >= 0; i--)
+        {
+            if (this._array[i].CompareTo(target) == 0)
+            {
+                return i;
+            }
+        }
+
+        // Return -1 if the target is not found
+        return -1;
+    }
 }

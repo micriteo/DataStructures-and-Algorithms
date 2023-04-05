@@ -54,6 +54,8 @@
             this.textBoxOutput = new System.Windows.Forms.RichTextBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.toolTipInputTextBox = new System.Windows.Forms.ToolTip(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxSearchText = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,7 +120,7 @@
             // labelInput
             // 
             this.labelInput.AutoSize = true;
-            this.labelInput.Location = new System.Drawing.Point(23, 68);
+            this.labelInput.Location = new System.Drawing.Point(15, 69);
             this.labelInput.Name = "labelInput";
             this.labelInput.Size = new System.Drawing.Size(35, 15);
             this.labelInput.TabIndex = 5;
@@ -127,7 +129,7 @@
             // labelOutput
             // 
             this.labelOutput.AutoSize = true;
-            this.labelOutput.Location = new System.Drawing.Point(22, 111);
+            this.labelOutput.Location = new System.Drawing.Point(23, 155);
             this.labelOutput.Name = "labelOutput";
             this.labelOutput.Size = new System.Drawing.Size(45, 15);
             this.labelOutput.TabIndex = 6;
@@ -166,7 +168,7 @@
             // labelExecutionTime
             // 
             this.labelExecutionTime.AutoSize = true;
-            this.labelExecutionTime.Location = new System.Drawing.Point(91, 273);
+            this.labelExecutionTime.Location = new System.Drawing.Point(91, 298);
             this.labelExecutionTime.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.labelExecutionTime.Name = "labelExecutionTime";
             this.labelExecutionTime.Size = new System.Drawing.Size(91, 15);
@@ -243,7 +245,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 91);
+            this.label1.Location = new System.Drawing.Point(15, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 15);
             this.label1.TabIndex = 17;
@@ -251,7 +253,7 @@
             // 
             // buttonBTInOrder
             // 
-            this.buttonBTInOrder.Location = new System.Drawing.Point(91, 238);
+            this.buttonBTInOrder.Location = new System.Drawing.Point(91, 268);
             this.buttonBTInOrder.Name = "buttonBTInOrder";
             this.buttonBTInOrder.Size = new System.Drawing.Size(110, 23);
             this.buttonBTInOrder.TabIndex = 18;
@@ -261,7 +263,7 @@
             // 
             // buttonBTPreOrder
             // 
-            this.buttonBTPreOrder.Location = new System.Drawing.Point(207, 238);
+            this.buttonBTPreOrder.Location = new System.Drawing.Point(207, 266);
             this.buttonBTPreOrder.Name = "buttonBTPreOrder";
             this.buttonBTPreOrder.Size = new System.Drawing.Size(108, 22);
             this.buttonBTPreOrder.TabIndex = 19;
@@ -271,7 +273,7 @@
             // 
             // buttonBTPostOrder
             // 
-            this.buttonBTPostOrder.Location = new System.Drawing.Point(320, 238);
+            this.buttonBTPostOrder.Location = new System.Drawing.Point(322, 266);
             this.buttonBTPostOrder.Name = "buttonBTPostOrder";
             this.buttonBTPostOrder.Size = new System.Drawing.Size(103, 22);
             this.buttonBTPostOrder.TabIndex = 20;
@@ -281,7 +283,7 @@
             // 
             // textBoxOutput
             // 
-            this.textBoxOutput.Location = new System.Drawing.Point(91, 111);
+            this.textBoxOutput.Location = new System.Drawing.Point(91, 140);
             this.textBoxOutput.Margin = new System.Windows.Forms.Padding(1);
             this.textBoxOutput.Name = "textBoxOutput";
             this.textBoxOutput.ReadOnly = true;
@@ -300,11 +302,29 @@
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click_1);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 15);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Search Item";
+            // 
+            // textBoxSearchText
+            // 
+            this.textBoxSearchText.Location = new System.Drawing.Point(91, 113);
+            this.textBoxSearchText.Name = "textBoxSearchText";
+            this.textBoxSearchText.Size = new System.Drawing.Size(258, 23);
+            this.textBoxSearchText.TabIndex = 24;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 322);
+            this.Controls.Add(this.textBoxSearchText);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.textBoxOutput);
             this.Controls.Add(this.buttonBTPostOrder);
@@ -367,5 +387,7 @@
         private RichTextBox textBoxOutput;
         private Button buttonClear;
         private ToolTip toolTipInputTextBox;
+        private Label label2;
+        private TextBox textBoxSearchText;
     }
 }

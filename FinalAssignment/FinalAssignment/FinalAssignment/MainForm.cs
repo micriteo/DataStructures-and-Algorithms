@@ -8,6 +8,7 @@ namespace FinalAssignment
         private readonly CustomBinaryTree<InputType> _binaryTree;
         private readonly CustomLinkedList<InputType> _linkedList;
         private readonly CustomArrayList<InputType> _arrayList;
+        private InputType[] sortedArray;
 
         private const string LabelExecutionTime = "Execution Time: ";
 
@@ -17,9 +18,11 @@ namespace FinalAssignment
             this._linkedList = new();
             this._arrayList = new();
 
+            
             InitializeComponent();
             this.UpdateExecutionTimeLabel(0);
             this.InitializeToolTips();
+            this.searchInitilization();
         }
 
         private void InitializeToolTips()
@@ -68,8 +71,18 @@ namespace FinalAssignment
                 quickSortCheck.Enabled = true;
                 mergeSortCheck.Enabled = true;
                 buttonGenerate.Enabled = true;
+                textBoxSearchText.Visible = true;
+                label2.Visible = true;
             }
         }
+    
+    private void searchInitilization()
+    {
+            //  Display lables for the collection
+            label2.Visible = false;
+            //  Display textboxes for the collection
+            textBoxSearchText.Visible = false;
+    }
 
 
     private void buttonAdd_Click_1(object sender, EventArgs e)
@@ -127,7 +140,7 @@ namespace FinalAssignment
         {
             if (mergeSortCheck.Checked)
             {
-                InputType[] sortedArray = this._arrayList.MergeSort();
+                this.sortedArray = this._arrayList.MergeSort();
                 string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
                 textBoxOutput.Text = outputString;
             }
@@ -136,7 +149,37 @@ namespace FinalAssignment
                 InputType[] sortedArray = this._arrayList.QuickSort();
                 string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
                 textBoxOutput.Text = outputString;
-            };
+            }
+            else if (jumpSearchCheck.Checked)
+            {
+                try
+                {
+                    object searchInput = textBoxSearchText.Text;
+
+                    InputType inputType = new InputType(textBoxSearchText.Text);
+                    int index = this._arrayList.JumpSearch(inputType);
+                    if (index == -1)
+                    {
+                        textBoxOutput.Text = "Input not found.";
+                    }
+                    else
+                    {
+                        textBoxOutput.Text = $"Input found at index {index}.";
+                    }
+                }
+                catch (ArgumentNullException ex)
+                {
+                    MessageBox.Show($"Error occurred: {ex.Message}");
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show($"Error occurred: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a type of searching algorithm");
+            }
         }
 
         private void UpdateExecutionTimeLabel(double executionTime)
@@ -249,6 +292,6 @@ namespace FinalAssignment
                 this._arrayList.Clear();
                 textBoxOutput.Text = "";
             }
-        }
+        }    
     }
 }
