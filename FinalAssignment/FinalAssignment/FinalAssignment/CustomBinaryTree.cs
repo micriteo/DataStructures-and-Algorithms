@@ -2,17 +2,13 @@
 
 namespace FinalAssignment;
 
-public class CustomBinaryTree<T>:ICustomCollection<T> where T:IComparable
+public class CustomBinaryTree<T> : ICustomCollection<T> where T : IComparable
 {
-    private BinaryTreeNode<T> _root;
-    public BinaryTreeNode<T> Root => this._root;
+    public BinaryTreeNode<T>? Root { get; private set; }
 
-    public void InorderTraversal(BinaryTreeNode<T> node, ref StringBuilder values)
+    public void InorderTraversal(BinaryTreeNode<T>? node, ref StringBuilder values)
     {
-        if (node is null)
-        {
-            return;
-        }
+        if (node is null) return;
 
         InorderTraversal(node.Left, ref values);
         values.Append(node.Value);
@@ -20,12 +16,9 @@ public class CustomBinaryTree<T>:ICustomCollection<T> where T:IComparable
         InorderTraversal(node.Right, ref values);
     }
 
-    public void PreorderTraversal(BinaryTreeNode<T> node, ref StringBuilder values)
+    public void PreorderTraversal(BinaryTreeNode<T>? node, ref StringBuilder values)
     {
-        if (node is null)
-        {
-            return;    
-        }
+        if (node is null) return;
 
         values.Append(node.Value);
         values.Append(" ");
@@ -33,12 +26,9 @@ public class CustomBinaryTree<T>:ICustomCollection<T> where T:IComparable
         PreorderTraversal(node.Right, ref values);
     }
 
-    public void PostorderTraversal(BinaryTreeNode<T> node, ref StringBuilder values)
+    public void PostorderTraversal(BinaryTreeNode<T>? node, ref StringBuilder values)
     {
-        if (node is null)
-        {
-            return;
-        }
+        if (node is null) return;
 
         PostorderTraversal(node.Left, ref values);
         PostorderTraversal(node.Right, ref values);
@@ -46,15 +36,24 @@ public class CustomBinaryTree<T>:ICustomCollection<T> where T:IComparable
         values.Append(" ");
     }
 
-    public void Add(T insertedValue)
+    public string GetCollectionValues()
     {
-        if (this.Root is null)
+        StringBuilder values = new StringBuilder();
+
+        InorderTraversal(Root, ref values);
+
+        return values.ToString();
+    }
+
+    public void Add(T value)
+    {
+        if (Root is null)
         {
-            this._root = new(insertedValue);
+            Root = new BinaryTreeNode<T>(value);
         }
         else
         {
-            this.AddRecursive(this.Root, insertedValue);
+            AddRecursive(Root, value);
         }
     }
 
@@ -64,7 +63,7 @@ public class CustomBinaryTree<T>:ICustomCollection<T> where T:IComparable
         {
             if (currentNode.Left is null)
             {
-                currentNode.Left = new(insertedValue);
+                currentNode.Left = new BinaryTreeNode<T>(insertedValue);
             }
             else
             {
@@ -75,7 +74,7 @@ public class CustomBinaryTree<T>:ICustomCollection<T> where T:IComparable
         {
             if (currentNode.Right is null)
             {
-                currentNode.Right = new(insertedValue);
+                currentNode.Right = new BinaryTreeNode<T>(insertedValue);
             }
             else
             {
@@ -86,11 +85,12 @@ public class CustomBinaryTree<T>:ICustomCollection<T> where T:IComparable
 
     public void Clear()
     {
+        // The following does not work (most probably when the Root is set to null, the garbage collector removes every other associated node)
         // foreach (Node node in this.PostorderTraversal(this.Root))
         // {
         //     node = null;
         // }
 
-        this._root = null;
+        Root = null;
     }
 }

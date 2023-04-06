@@ -2,7 +2,8 @@
 
 public interface ICustomCollection<T>
 {
-    void Add(T obj);
-    // void Insert(InputType obj, int index);
+    void Add(T value);
+    // void Insert(InputType value, int index);
     void Clear();
+    string GetCollectionValues();
 }

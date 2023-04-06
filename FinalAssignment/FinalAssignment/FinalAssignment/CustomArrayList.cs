@@ -1,29 +1,21 @@
 ﻿using System;
+using System.Text;
 
 namespace FinalAssignment;
 
-public class CustomArrayList<T> : ISortable<T>, ISearchable<T>, ICustomCollection<T> where T : IComparable
+public class CustomArrayList<T> : ICustomCollection<T>, ISortable<T>, ISearchable<T> where T : IComparable
 {
     private T[] _array;
     private int _count;
-    private readonly int _increment = 5;
+    private readonly int Increment = 5;
 
-    // Define a public property to return the count of elements in the array
-    public int Count
-    {
-        get
-        {
-            return this._count;
-        }
-    }
+    public int Count => this._count;
 
-    // Define a constructor that initializes the array with a default size of _increment
     public CustomArrayList()
     {
-        this._array = new T[this._increment];
+        this._array = new T[this.Increment];
         this._count = 0;
     }
-
 
     public T[] MergeSort()
     {
@@ -122,32 +114,48 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable<T>, ICustomCollectio
     }
 
 
-    public void Add(T item)
+    public void Add(T? item)
     {
-        if (item == null) throw new ArgumentNullException();
-
-        if(this._count == this._array.Length) 
+        if (item is null) throw new ArgumentNullException();
+        
+        // Increasing array's size if it reached its limit
+        if(this.Count == this._array.Length) 
         {
-            T[] newArray = new T[this._array.Length * 2];
+            T[] newArray = new T[this._array.Length + this.Increment];
             Array.Copy(this._array, 0, newArray, 0, this._array.Length);
-            _array = newArray;
+            this._array = newArray;
         }
 
-        // Find the index to insert the new element
-        int insertIndex = 0;
-        while (insertIndex < this._count && item.CompareTo(this._array[insertIndex]) >= 0)
+        // ONE QUESTION: WHY???????????
+        // // Find the index to insert the new element
+        // int insertIndex = 0;
+        // while (insertIndex < this._count && item.CompareTo(this._array[insertIndex]) >= 0)
+        // {
+        //     insertIndex++;
+        // }
+        //
+        // // Shift the existing elements to make space for the new element
+        // for (int i = this._count - 1; i >= insertIndex; i--)
+        // {
+        //     this._array[i + 1] = this._array[i];
+        // }
+        //
+        // // Insert the new element
+        // this._array[insertIndex] = item;
+        // this._count++;
+
+        for (int i = 0; i < this._array.Length; i++)
         {
-            insertIndex++;
+            if (this._array[i] is null)
+            {
+                this._array[i] = item;
+                this._count++;
+                return;
+            }
         }
-            
-        // Shift the existing elements to make space for the new element
-        for (int i = this._count - 1; i >= insertIndex; i--)
-        {
-            this._array[i + 1] = this._array[i];
-        }
-        // Insert the new element
-        this._array[insertIndex] = item;
-        this._count++;
+
+        // Should never reach here!
+        throw new EndOfStreamException("The array was full with non-null items!");
     }
 
 
@@ -198,6 +206,7 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable<T>, ICustomCollectio
     {
         T pivot = arr[right];
         int i = left - 1;
+
         for (int j = left; j < right; j++)
         {
             if (Comparer<T>.Default.Compare(arr[j], pivot) <= 0)
@@ -206,24 +215,24 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable<T>, ICustomCollectio
                 Swap(arr, i, j);
             }
         }
+
         Swap(arr, i + 1, right);
         return i + 1;
     }
 
     private void Swap(T[] arr, int i, int j)
     {
-        T temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        // Magic... (also called "swap using deconstruction")
+        (arr[i], arr[j]) = (arr[j], arr[i]);
     }
 
     public void Clear()
     {
         // Set _count to 0 to empty the array
-        _count = 0;
+        this._count = 0;
 
         // Create a new array with the original size and set it to _array
-        _array = new T[_increment];
+        this._array = new T[Increment];
     }
 
     public int JumpSearch(InputType target)
@@ -235,17 +244,13 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable<T>, ICustomCollectio
         }
 
         // Check if the array is sorted in ascending order
-        bool isSorted = false;
+        bool isSorted = true;
         for (int i = 1; i < this._count; i++)
         {
             if (this._array[i].CompareTo(this._array[i - 1]) < 0)
             {
                 isSorted = false;
                 break;
-            }
-            else
-            {
-                isSorted = true;
             }
         }
 
@@ -271,6 +276,7 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable<T>, ICustomCollectio
                         return j;
                     }
                 }
+
                 return -1;
             }
             // Check if the current element is the target
@@ -291,5 +297,21 @@ public class CustomArrayList<T> : ISortable<T>, ISearchable<T>, ICustomCollectio
 
         // Return -1 if the target is not found
         return -1;
+    }
+
+    public string GetCollectionValues()
+    {
+        StringBuilder values = new StringBuilder();
+
+        foreach (T variable in this._array)
+        {
+            if (variable is not null)
+            {
+                values.Append(variable.ToString());
+                values.Append(" ");
+            }
+        }
+
+        return values.ToString();
     }
 }

@@ -4,15 +4,15 @@ namespace FinalAssignment;
 
 public class InputType : IComparable
 {
-    public object value;
+    private object _value;
 
     public object Value
     {
         get
         {
-            return this.value;
+            return this._value;
         }
-        set
+        private init
         {
             if (string.IsNullOrEmpty(value.ToString()))
             {
@@ -26,16 +26,16 @@ public class InputType : IComparable
                 // Check if the result is a double or an int
                 if (result % 1 == 0)
                 {
-                    this.value = (int)result;
+                    this._value = (int)result;
                 }
                 else
                 {
-                    this.value = result;
+                    this._value = result;
                 }
             }
             catch (FormatException e)
             {
-                this.value = value.ToString();
+                this._value = value.ToString();
             }
         }
     }
@@ -47,7 +47,7 @@ public class InputType : IComparable
 
     public bool IsString()
     {
-        return Value is string;
+        return this.Value is string;
     }
 
     public int CompareTo(object? obj)
@@ -57,7 +57,7 @@ public class InputType : IComparable
             throw new NoNullAllowedException();
         }
 
-        if (this.Value is string)
+        if (IsString())
         {
             string currentValue = this.Value as string;
             return currentValue.CompareTo(obj.ToString());
@@ -65,15 +65,24 @@ public class InputType : IComparable
 
         if (this.Value is int || this.Value is double)
         {
-            double result = Double.Parse(obj.ToString()) - Double.Parse(this.Value.ToString());
-
-            // Return -1 if the result is less than 0, 1 if the result is greater than 0, and 0 if the result is 0
-            return result switch
+            try
             {
-                < 0 => -1,
-                > 0 => 1,
-                _ => 0
-            };
+                double result = Double.Parse(obj.ToString()) - Double.Parse(this.Value.ToString());
+                
+                // Return -1 if the result is less than 0, 1 if the result is greater than 0, and 0 if the result is 0
+                return result switch
+                {
+                    < 0 => -1,
+                    > 0 => 1,
+                    _ => 0
+                };
+            }
+            catch (FormatException e)
+            {
+                // Based on MY RULES, a string is always smaller than a number
+                // Change the number below to 1 if you think I am wrong :)
+                return -1;
+            }
         }
 
         throw new ArgumentException("Object is not a string or a number");
@@ -81,6 +90,6 @@ public class InputType : IComparable
 
     public override string ToString()
     {
-        return value.ToString();
+        return this.Value.ToString();
     }
 }

@@ -158,4 +158,9 @@ public class CustomLinkedList<T> : ICustomCollection<T>, ISortable<T> where T:IC
     {
         throw new NotImplementedException();
     }
+
+    public string GetCollectionValues()
+    {
+        throw new NotImplementedException();
+    }
 }
