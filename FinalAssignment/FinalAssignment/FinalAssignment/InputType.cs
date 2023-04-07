@@ -92,4 +92,9 @@ public class InputType : IComparable
     {
         return this.Value.ToString();
     }
+
+    public override bool Equals(object? obj)
+    {
+        return this.CompareTo(obj) == 0;
+    }
 }

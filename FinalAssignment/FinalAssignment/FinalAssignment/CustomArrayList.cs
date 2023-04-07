@@ -3,7 +3,7 @@ using System.Text;
 
 namespace FinalAssignment;
 
-public class CustomArrayList<T> : ICustomCollection<T>, ISortable<T>, ISearchable<T> where T : IComparable
+public class CustomArrayList<T> : ICustomCollection<T>, ISortable<T> where T : IComparable
 {
     private T[] _array;
     private int _count;
@@ -17,14 +17,58 @@ public class CustomArrayList<T> : ICustomCollection<T>, ISortable<T>, ISearchabl
         this._count = 0;
     }
 
+    public void Add(T? item)
+    {
+        if (item is null) throw new ArgumentNullException();
+
+        // Increasing array's size if it reached its limit
+        if (this.Count == this._array.Length)
+        {
+            T[] newArray = new T[this._array.Length + this.Increment];
+            Array.Copy(this._array, 0, newArray, 0, this._array.Length);
+            this._array = newArray;
+        }
+
+        // ONE QUESTION: WHY???????????
+        // // Find the index to insert the new element
+        // int insertIndex = 0;
+        // while (insertIndex < this._count && item.CompareTo(this._array[insertIndex]) >= 0)
+        // {
+        //     insertIndex++;
+        // }
+        //
+        // // Shift the existing elements to make space for the new element
+        // for (int i = this._count - 1; i >= insertIndex; i--)
+        // {
+        //     this._array[i + 1] = this._array[i];
+        // }
+        //
+        // // Insert the new element
+        // this._array[insertIndex] = item;
+        // this._count++;
+
+        for (int i = 0; i < this._array.Length; i++)
+        {
+            if (this._array[i] is null)
+            {
+                this._array[i] = item;
+                this._count++;
+                return;
+            }
+        }
+
+        // Should never reach here!
+        throw new EndOfStreamException("The array was full with non-null items!");
+    }
+
     public T[] MergeSort()
     {
         // Create a new array to hold the sorted elements and copy the original array to it
         T[] sortedArray = new T[this._count];
-        Array.Copy(_array, sortedArray, _count);
+        Array.Copy(this._array, sortedArray, _count);
 
         // Call the recursive helper function to perform the sort
-        MergeSortHelper(sortedArray, 0, _count - 1);
+        MergeSortHelper(sortedArray, 0, this.Count - 1);
 
 
         // If the element type is InputType, check if it is a string and sort or reverse the array accordingly
@@ -112,53 +156,6 @@ public class CustomArrayList<T> : ICustomCollection<T>, ISortable<T>, ISearchabl
         // Copy the sorted elements from the temporary array back to the original array
         Array.Copy(tempArray, 0, _array, left, tempIndex);
     }
-
-
-    public void Add(T? item)
-    {
-        if (item is null) throw new ArgumentNullException();
-        
-        // Increasing array's size if it reached its limit
-        if(this.Count == this._array.Length) 
-        {
-            T[] newArray = new T[this._array.Length + this.Increment];
-            Array.Copy(this._array, 0, newArray, 0, this._array.Length);
-            this._array = newArray;
-        }
-
-        // ONE QUESTION: WHY???????????
-        // // Find the index to insert the new element
-        // int insertIndex = 0;
-        // while (insertIndex < this._count && item.CompareTo(this._array[insertIndex]) >= 0)
-        // {
-        //     insertIndex++;
-        // }
-        //
-        // // Shift the existing elements to make space for the new element
-        // for (int i = this._count - 1; i >= insertIndex; i--)
-        // {
-        //     this._array[i + 1] = this._array[i];
-        // }
-        //
-        // // Insert the new element
-        // this._array[insertIndex] = item;
-        // this._count++;
-
-        for (int i = 0; i < this._array.Length; i++)
-        {
-            if (this._array[i] is null)
-            {
-                this._array[i] = item;
-                this._count++;
-                return;
-            }
-        }
-
-        // Should never reach here!
-        throw new EndOfStreamException("The array was full with non-null items!");
-    }
-
-
 
     public T[] QuickSort()
     {

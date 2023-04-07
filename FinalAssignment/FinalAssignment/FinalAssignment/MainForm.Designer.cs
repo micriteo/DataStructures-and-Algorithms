@@ -178,7 +178,7 @@
             // labelExecutionTime
             // 
             labelExecutionTime.AutoSize = true;
-            labelExecutionTime.Location = new Point(195, 735);
+            labelExecutionTime.Location = new Point(32, 749);
             labelExecutionTime.Margin = new Padding(2, 0, 2, 0);
             labelExecutionTime.Name = "labelExecutionTime";
             labelExecutionTime.Size = new Size(202, 37);

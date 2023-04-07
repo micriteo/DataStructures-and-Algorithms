@@ -20,8 +20,9 @@ namespace FinalAssignment
 
 
             InitializeComponent();
-            this.UpdateExecutionTimeLabel(0);
+            // this.UpdateExecutionTimeLabel(Stopwatch.StartNew());
             this.InitializeToolTips();
+            this.ChangeToDefaultDisplay();
         }
 
         private void InitializeToolTips()
@@ -29,14 +30,16 @@ namespace FinalAssignment
             toolTipInputTextBox.SetToolTip(textBoxInputText, "Enter values to be added, separated by a space!");
         }
 
-        private void UpdateExecutionTimeLabel(double executionTime)
+        private void UpdateExecutionTimeLabel(Stopwatch executionTime)
         {
-            float seconds = (float)executionTime / 1000;
+            double milliseconds = executionTime.Elapsed.TotalMilliseconds;
+            double seconds = executionTime.Elapsed.TotalSeconds;
+
             // :F2 means that the number will be rounded to 2 decimal places (seconds:F2)
-            labelExecutionTime.Text = $"{MainForm.LabelExecutionTime}{seconds:F2} seconds";
+            labelExecutionTime.Text = $"{MainForm.LabelExecutionTime}{milliseconds:F2} miliseconds | {seconds:F2} seconds";
         }
 
-        private void comboBoxCollectionType_SelectedIndexChanged(object sender, EventArgs e)
+        private void ChangeToDefaultDisplay()
         {
             // Defining default status of buttons
             binarrySearchCheck.Enabled = false;
@@ -54,9 +57,11 @@ namespace FinalAssignment
             buttonBTPreOrder.Visible = false;
             buttonBTPostOrder.Visible = false;
             buttonGenerate.Enabled = false;
-            // Other default values
-            textBoxSearchText.Visible = false;
-            labelSearchItem.Visible = false;
+        }
+
+        private void comboBoxCollectionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.ChangeToDefaultDisplay();
 
             if (comboBoxCollectionType.SelectedItem.ToString().Equals("BinarySearchTree"))
             {
@@ -66,12 +71,13 @@ namespace FinalAssignment
                 buttonBTInOrder.Visible = true;
                 buttonBTPreOrder.Visible = true;
                 buttonBTPostOrder.Visible = true;
+                buttonGenerate.Enabled = true;
             }
             else if (comboBoxCollectionType.SelectedItem.ToString().Equals("LinkedList"))
             {
                 quickSortCheck.Enabled = true;
                 mergeSortCheck.Enabled = true;
-                // jumpSearchCheck.Enabled = true;
+                jumpSearchCheck.Enabled = true;
                 buttonGenerate.Enabled = true;
             }
             else if (comboBoxCollectionType.SelectedItem.ToString().Equals("ArrayList"))
@@ -80,8 +86,6 @@ namespace FinalAssignment
                 quickSortCheck.Enabled = true;
                 mergeSortCheck.Enabled = true;
                 buttonGenerate.Enabled = true;
-                textBoxSearchText.Visible = true;
-                labelSearchItem.Visible = true;
             }
         }
 
@@ -106,77 +110,116 @@ namespace FinalAssignment
         {
             StringBuilder output = new("In Order Traversal: \n\n");
 
-            var executionTime = Stopwatch.StartNew();
+            Stopwatch executionTime = Stopwatch.StartNew();
             this._binaryTree.InorderTraversal(this._binaryTree.Root, ref output);
             executionTime.Stop();
 
             richTextBoxOutput.Text = output.ToString();
-            this.UpdateExecutionTimeLabel(executionTime.ElapsedMilliseconds);
+            this.UpdateExecutionTimeLabel(executionTime);
         }
 
         private void buttonBTPreOrder_Click(object sender, EventArgs e)
         {
             StringBuilder output = new("Pre Order Traversal: \n\n");
 
-            var executionTime = Stopwatch.StartNew();
+            Stopwatch executionTime = Stopwatch.StartNew();
             this._binaryTree.PreorderTraversal(this._binaryTree.Root, ref output);
             executionTime.Stop();
 
             richTextBoxOutput.Text = output.ToString();
-            this.UpdateExecutionTimeLabel(executionTime.ElapsedMilliseconds);
+            this.UpdateExecutionTimeLabel(executionTime);
         }
 
         private void buttonBTPostOrder_Click(object sender, EventArgs e)
         {
             StringBuilder output = new("Post Order Traversal: \n\n");
 
-            var executionTime = Stopwatch.StartNew();
+            Stopwatch executionTime = Stopwatch.StartNew();
             this._binaryTree.PostorderTraversal(this._binaryTree.Root, ref output);
             executionTime.Stop();
 
             richTextBoxOutput.Text = output.ToString();
-            this.UpdateExecutionTimeLabel(executionTime.ElapsedMilliseconds);
+            this.UpdateExecutionTimeLabel(executionTime);
         }
         // ======================================================================================
 
         private void buttonGenerate_Click(object sender, EventArgs e)
         {
-            if (mergeSortCheck.Checked)
+            try
             {
-                this.sortedArray = this._arrayList.MergeSort();
-                string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
-                richTextBoxOutput.Text = outputString;
-            }
-            else if (quickSortCheck.Checked)
-            {
-                InputType[] sortedArray = this._arrayList.QuickSort();
-                string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
-                richTextBoxOutput.Text = outputString;
-            }
-            else if (jumpSearchCheck.Checked)
-            {
-                try
+                Stopwatch executionTime = Stopwatch.StartNew();
+
+                ISortable<InputType> collectionType;
+
+                if (comboBoxCollectionType.SelectedItem.ToString().Equals("LinkedList"))
+                {
+                    collectionType = this._linkedList;
+                }
+                else if (comboBoxCollectionType.SelectedItem.ToString().Equals("ArrayList"))
+                {
+                    collectionType = this._arrayList;
+                }
+                else
+                {
+                    throw new InvalidOperationException("Chosen collection type does not support this operation.");
+                }
+
+                if (mergeSortCheck.Checked)
+                {
+                    sortedArray = collectionType.MergeSort();
+                    executionTime.Stop();
+                    
+                    string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
+                    richTextBoxOutput.Text = outputString;
+                }
+                else if (quickSortCheck.Checked)
+                {
+                    InputType[] sortedArray = collectionType.QuickSort();
+                    executionTime.Stop();
+
+                    string outputString = string.Join(", ", sortedArray.Select(x => x.Value.ToString()));
+                    richTextBoxOutput.Text = outputString;
+                }
+                else if (jumpSearchCheck.Checked)
                 {
                     InputType inputType = new InputType(textBoxSearchText.Text);
-                    int index = this._arrayList.JumpSearch(inputType);
+                    int index = collectionType.JumpSearch(inputType);
+                    executionTime.Stop();
 
-                    if (index == -1)
+                    if (index != -1)
                     {
-                        richTextBoxOutput.Text = "Input not found.";
+                        richTextBoxOutput.Text = $"Input:\n{inputType.ToString()}\nfound at index {index}.";
                     }
                     else
                     {
-                        richTextBoxOutput.Text = $"Input '{textBoxSearchText.Text}' found at index {index}.";
+                        richTextBoxOutput.Text = "Input not found.";
                     }
                 }
-                catch (Exception ex)
+                else if (binarrySearchCheck.Checked)
                 {
-                    MessageBox.Show($"Error occurred: {ex.Message}");
+                    InputType inputType = new InputType(textBoxSearchText.Text);
+                    int iterations = this._binaryTree.BinarySearch(inputType);
+                    executionTime.Stop();
+                   
+                    if (iterations != -1)
+                    {
+                        richTextBoxOutput.Text = $"The binary tree contains the searched value:\n{inputType.ToString()}\nNumber of iterations: {iterations}";
+                    }
+                    else
+                    {
+                        richTextBoxOutput.Text = $"The binary tree does not contain the searched value:\n{inputType.ToString()}";
+                    }
                 }
+                else
+                {
+                    throw new ArgumentNullException("Select a type of searching algorithm");
+                }
+
+                this.UpdateExecutionTimeLabel(executionTime);
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Select a type of searching algorithm");
+                MessageBox.Show($"Error occurred: {ex.Message}");
             }
         }
 
@@ -228,7 +271,7 @@ namespace FinalAssignment
 
             if (fileDialog.ShowDialog().Equals(DialogResult.OK))
             {
-                var executionTime = Stopwatch.StartNew();
+                Stopwatch executionTime = Stopwatch.StartNew();
                 try
                 {
                     string filePath = fileDialog.FileName;
@@ -258,7 +301,7 @@ namespace FinalAssignment
                 }
 
                 executionTime.Stop();
-                this.UpdateExecutionTimeLabel(executionTime.ElapsedMilliseconds);
+                this.UpdateExecutionTimeLabel(executionTime);
             }
             else
             {
@@ -291,6 +334,7 @@ namespace FinalAssignment
                 return;
             }
 
+            Stopwatch elapsedTime = Stopwatch.StartNew();
             if (comboBoxCollectionType.SelectedItem.ToString().Equals("BinarySearchTree"))
             {
                 defaultHeading.Append("Binary Search Tree \n(is sorted so will display same as InOrderTraversal):\n");
@@ -306,8 +350,10 @@ namespace FinalAssignment
                 defaultHeading.Append("ArrayList:\n");
                 defaultHeading.Append(this._arrayList.GetCollectionValues());
             }
+            elapsedTime.Stop();
 
             richTextBoxOutput.Text = defaultHeading.ToString();
+            this.UpdateExecutionTimeLabel(elapsedTime);
         }
     }
 }
