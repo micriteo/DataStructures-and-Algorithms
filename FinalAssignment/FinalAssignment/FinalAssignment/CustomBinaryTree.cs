@@ -45,6 +45,39 @@ public class CustomBinaryTree<T> : ICustomCollection<T> where T : IComparable
         return values.ToString();
     }
 
+    public int BinarySearch(T value)
+    {
+        int iterations = 0;
+        T? searchedValue = value;
+        BinaryTreeNode<T>? currentNode = Root;
+
+        while (true)
+        {
+            if (currentNode is null)
+            {
+                return -1;
+            }
+
+            if (currentNode.Value.CompareTo(searchedValue) == 0)
+            {
+                return iterations;
+            }
+            else
+            {
+                iterations++;
+
+                if (currentNode.Value.CompareTo(searchedValue) < 0)
+                {
+                    currentNode = currentNode.Left;
+                }
+                else
+                {
+                    currentNode = currentNode.Right;
+                }
+            }
+        }
+    }
+
     public void Add(T value)
     {
         if (Root is null)
