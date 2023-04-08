@@ -148,21 +148,7 @@ namespace FinalAssignment
             try
             {
                 Stopwatch executionTime = Stopwatch.StartNew();
-
-                ISortable<InputType> collectionType;
-
-                if (comboBoxCollectionType.SelectedItem.ToString().Equals("LinkedList"))
-                {
-                    collectionType = this._linkedList;
-                }
-                else if (comboBoxCollectionType.SelectedItem.ToString().Equals("ArrayList"))
-                {
-                    collectionType = this._arrayList;
-                }
-                else
-                {
-                    throw new InvalidOperationException("Chosen collection type does not support this operation.");
-                }
+                ISortable<InputType> collectionType = this.GetCollectionType(comboBoxCollectionType.SelectedItem.ToString());
 
                 if (mergeSortCheck.Checked)
                 {
@@ -220,6 +206,26 @@ namespace FinalAssignment
             catch (Exception ex)
             {
                 MessageBox.Show($"Error occurred: {ex.Message}");
+            }
+        }
+
+        private ISortable<InputType>? GetCollectionType(string collectionType)
+        {
+            if (collectionType.Equals("LinkedList"))
+            {
+                return this._linkedList;
+            }
+            else if (collectionType.Equals("ArrayList"))
+            {
+                return this._arrayList;
+            }
+            else if (collectionType.Equals("BinarySearchTree"))
+            {
+                return null;
+            }
+            else
+            {
+                throw new InvalidOperationException("Chosen collection type does not support this operation.");
             }
         }
 
