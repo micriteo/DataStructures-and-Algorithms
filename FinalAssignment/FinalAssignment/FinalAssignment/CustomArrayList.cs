@@ -29,24 +29,6 @@ public class CustomArrayList<T> : ICustomCollection<T>, ISortable<T> where T : I
             this._array = newArray;
         }
 
-        // ONE QUESTION: WHY???????????
-        // // Find the index to insert the new element
-        // int insertIndex = 0;
-        // while (insertIndex < this._count && item.CompareTo(this._array[insertIndex]) >= 0)
-        // {
-        //     insertIndex++;
-        // }
-        //
-        // // Shift the existing elements to make space for the new element
-        // for (int i = this._count - 1; i >= insertIndex; i--)
-        // {
-        //     this._array[i + 1] = this._array[i];
-        // }
-        //
-        // // Insert the new element
-        // this._array[insertIndex] = item;
-        // this._count++;
-
         for (int i = 0; i < this._array.Length; i++)
         {
             if (this._array[i] is null)
@@ -195,7 +177,9 @@ public class CustomArrayList<T> : ICustomCollection<T>, ISortable<T> where T : I
         {
             int pivotIndex = Partition(arr, left, right);
             QuickSortHelper(arr, left, pivotIndex - 1);
+            //Left Partition
             QuickSortHelper(arr, pivotIndex + 1, right);
+            //Right Partition
         }
     }
 
