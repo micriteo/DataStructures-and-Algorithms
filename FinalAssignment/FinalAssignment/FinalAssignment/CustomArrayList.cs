@@ -200,6 +200,7 @@ public class CustomArrayList<T> : ICustomCollection<T>, ISortable<T> where T : I
     }
 
     private int Partition(T[] arr, int left, int right)
+        //Location of our pivot
     {
         T pivot = arr[right];
         int i = left - 1;
