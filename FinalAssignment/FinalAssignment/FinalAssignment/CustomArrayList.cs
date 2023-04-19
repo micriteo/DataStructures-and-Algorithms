@@ -198,7 +198,9 @@ public class CustomArrayList<T> : ICustomCollection<T>, ISortable<T> where T : I
             }
         }
 
+        //Add pivot into it's place in the array
         Swap(arr, i + 1, right);
+        
         return i + 1;
     }
 
